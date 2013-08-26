@@ -1,0 +1,13 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1377541142778 1159 f7cd008efd3f9721af88fd166bd4b46c20313e98 C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\values\values.xml
+1377541142778 353 7ab739dc33a78436a385bd91eaa3e2ef238502c6 C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\menu\main.xml
+1377541142778 769 7843685e42d508b524249749bcd17491e68843fe C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\layout\activity_main.xml
+1377541142815 7335 9db003b5e6e3d88553cac73902c038d1e07b82d2 C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\drawable-xhdpi\ic_launcher.png
+1377541142799 333 386ebee663d018c7ee347b157c97b880549050ae C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\values-v11\values.xml
+1377541142781 347 acc8fd9ff376bdb263c16d24e6b84b4559d09896 C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\values-v14\values.xml
+1377541142856 12654 e128a9a136e41f3f4ff8dbbef14ce337a54ecfb2 C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\drawable-xxhdpi\ic_launcher.png
+1377541142800 262 88aa620ec1c29f5b43e00438a68da8fd461467ca C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\values-sw720dp-land\values.xml
+1377541142791 3065 2540498e8260bada8b05e5e4f9aa232132da2b6f C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\drawable-mdpi\ic_launcher.png
+1377541142798 5286 eec721b658a04ef50559f8f51b5a942ea151a6ab C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\all\debug\drawable-hdpi\ic_launcher.png
