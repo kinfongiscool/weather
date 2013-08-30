@@ -2,39 +2,269 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res" >
+        <source path="C:\Development\Repositories\WeatherProject\Weather\src\main\res" >
             <file
-                name="ic_launcher"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\drawable-hdpi\ic_launcher.png"
+                name="clear_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\clear_day.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="clear_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\clear_night.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="cloudy"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\cloudy.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="fog"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\fog.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\drawable-mdpi\ic_launcher.png"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\partly_cloudy_day.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\partly_cloudy_night.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="rain"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\rain.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="sleet"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\sleet.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="snow"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\snow.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="weather_default"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\weather_default.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="wind"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-hdpi\wind.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="clear_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\clear_day.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="clear_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\clear_night.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="cloudy"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\cloudy.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="fog"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\fog.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\drawable-xhdpi\ic_launcher.png"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\partly_cloudy_day.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\partly_cloudy_night.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="rain"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\rain.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="sleet"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\sleet.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="snow"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\snow.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="test"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\test.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="weather_default"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\weather_default.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="wind"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-mdpi\wind.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="clear_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\clear_day.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="clear_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\clear_night.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="cloudy"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\cloudy.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="fog"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\fog.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\partly_cloudy_day.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\partly_cloudy_night.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="rain"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\rain.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="sleet"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\sleet.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="snow"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\snow.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="weather_default"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\weather_default.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="wind"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xhdpi\wind.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="clear_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\clear_day.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="clear_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\clear_night.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="cloudy"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\cloudy.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="fog"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\fog.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_day"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\partly_cloudy_day.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="partly_cloudy_night"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\partly_cloudy_night.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="rain"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\rain.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="sleet"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\sleet.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="snow"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\snow.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="weather_default"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\weather_default.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="wind"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\drawable-xxhdpi\wind.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="activity_main"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\layout\activity_main.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="popup"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\layout\popup.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="main"
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\menu\main.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\menu\main.xml"
                 qualifiers=""
                 type="menu" />
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values\dimens.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values\dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
                 </dimen>
@@ -42,17 +272,23 @@
                 </dimen>
             </file>
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values\strings.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values\strings.xml"
                 qualifiers="" >
+                <string name="main_text" >Current weather conditions\nare this right now
+                </string>
+                <string name="close" >Close
+                </string>
                 <string name="action_settings" >Settings
                 </string>
-                <string name="app_name" >Weather
+                <string name="look_ahead" >Look ahead
                 </string>
-                <string name="hello_world" >Hello world!
+                <string name="app_name" >EasyWeather
+                </string>
+                <string name="temperature" >00°
                 </string>
             </file>
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values\styles.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values\styles.xml"
                 qualifiers="" >
 
                 <style
@@ -74,13 +310,13 @@
                 </style>
             </file>
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values-sw720dp-land\dimens.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values-sw720dp-land\dimens.xml"
                 qualifiers="sw720dp-land" >
                 <dimen name="activity_horizontal_margin" >128dp
                 </dimen>
             </file>
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values-v11\styles.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values-v11\styles.xml"
                 qualifiers="v11" >
 
                 <style
@@ -91,7 +327,7 @@
                 </style>
             </file>
             <file
-                path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\res\values-v14\styles.xml"
+                path="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values-v14\styles.xml"
                 qualifiers="v14" >
 
                 <style
@@ -102,10 +338,10 @@
                 </style>
             </file>
         </source>
-        <source path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\build\res\rs\debug" />
+        <source path="C:\Development\Repositories\WeatherProject\Weather\build\res\rs\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\debug\res" />
+        <source path="C:\Development\Repositories\WeatherProject\Weather\src\debug\res" />
     </dataSet>
 
 </merger>

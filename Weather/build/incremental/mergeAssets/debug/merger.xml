@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\main\assets" />
+        <source path="C:\Development\Repositories\WeatherProject\Weather\src\main\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Development\DeltaProgram\Playground\WeatherProject\Weather\src\debug\assets" />
+        <source path="C:\Development\Repositories\WeatherProject\Weather\src\debug\assets" />
     </dataSet>
 
 </merger>

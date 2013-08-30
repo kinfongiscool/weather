@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="#c0000000">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:background="#000000">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:id="@+id/hourly_summary"
+            android:text="hourly summary"
+            android:textSize="28dp"
+            android:textIsSelectable="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/hourly_icon"
+                />
+        <ImageView
+                android:layout_height="@android:dimen/notification_large_icon_height"
+                android:layout_width="@android:dimen/notification_large_icon_width"
+                android:id="@+id/hourly_icon"
+                android:src="@drawable/ic_launcher"
+                android:layout_margin="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:background="#000000">
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/daily_summary"
+                android:text="daily summary"
+                android:textSize="28dp"
+                android:textIsSelectable="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/daily_icon"
+                />
+        <ImageView
+                android:layout_height="@android:dimen/notification_large_icon_height"
+                android:layout_width="@android:dimen/notification_large_icon_width"
+                android:id="@+id/daily_icon"
+                android:src="@drawable/ic_launcher"
+                android:layout_margin="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:background="#000000">
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/close_button"
+        android:text="Close"
+        android:layout_gravity="right|center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</LinearLayout>
