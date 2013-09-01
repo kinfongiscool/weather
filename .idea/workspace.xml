@@ -69,23 +69,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" line="110" class="com.kinfong.weather.MainActivity$1" package="com.kinfong.weather">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -99,10 +83,17 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="1514" selection-end="1676" vertical-scroll-proportion="0.20190996" vertical-offset="347" max-vertical-offset="4470">
+            <state line="405" column="8" selection-start="15262" selection-end="15262" vertical-scroll-proportion="8.103683" vertical-offset="0" max-vertical-offset="7110">
               <folding>
-                <element signature="e#2748#4431#0" expanded="true" />
-                <element signature="e#4429#4430#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5431#5566#0" expanded="true" />
+                <element signature="e#5555#5556#0" expanded="true" />
+                <element signature="e#8262#10059#0" expanded="true" />
+                <element signature="e#9706#9965#0" expanded="true" />
+                <element signature="e#9963#9964#0" expanded="true" />
+                <element signature="e#10057#10058#0" expanded="true" />
+                <element signature="e#10202#10414#0" expanded="true" />
+                <element signature="e#10399#10400#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,7 +102,29 @@
       <file leaf-file-name="CardFlipActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Samples/AnimationsDemo/src/com/example/android/animationsdemo/CardFlipActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="57" selection-start="5325" selection-end="5325" vertical-scroll-proportion="0.0" vertical-offset="1830" max-vertical-offset="2565">
+            <state line="63" column="33" selection-start="2434" selection-end="2434" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="3525">
+              <folding>
+                <element signature="e#0#9818#0" expanded="false" />
+                <element signature="e#9639#9797#0" expanded="false" />
+                <element signature="e#9782#9783#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ids.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/ids.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -141,46 +154,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logo_spin.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="10" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="34" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyLocation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyLocation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="13" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="2430">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FetchForecastData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="28" selection-start="2699" selection-end="2709" vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="1545">
+            <state line="88" column="28" selection-start="2699" selection-end="2709" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -262,10 +239,10 @@
         <option value="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/layout/loading_screen.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml" />
-        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LoadingActivity.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LoadingFragment.java" />
         <option value="$PROJECT_DIR$/../../Samples/AnimationsDemo/src/com/example/android/animationsdemo/CardFlipActivity.java" />
+        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -548,6 +525,8 @@
       <recent name="C:\Development\Repositories\WeatherProject\Weather\Libraries" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Development\Repositories\WeatherProject\Weather\src\main\res\values" />
+      <recent name="C:\Development\Repositories\WeatherProject\Weather\src\main\res" />
       <recent name="C:\Development\Repositories\WeatherProject\Weather\Libraries\forecast" />
       <recent name="C:\Development\Repositories\WeatherProject\Weather\Libraries" />
     </key>
@@ -705,7 +684,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -776,13 +755,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="423" selection-end="423" vertical-scroll-proportion="0.22510232" vertical-offset="0" max-vertical-offset="733">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="0" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1605">
@@ -793,20 +765,6 @@
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyLocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="117" column="13" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="2340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="28" selection-start="2699" selection-end="2709" vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
@@ -840,13 +798,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="text-editor">
         <state line="65" column="53" selection-start="2614" selection-end="2614" vertical-scroll-proportion="0.0" vertical-offset="565" max-vertical-offset="1275">
@@ -855,6 +806,52 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Samples/AnimationsDemo/src/com/example/android/animationsdemo/CardFlipActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="33" selection-start="2434" selection-end="2434" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="3525">
+          <folding>
+            <element signature="e#0#9818#0" expanded="false" />
+            <element signature="e#9639#9797#0" expanded="false" />
+            <element signature="e#9782#9783#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/ids.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="34" selection-start="232" selection-end="232" vertical-scroll-proportion="0.08185539" vertical-offset="0" max-vertical-offset="733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.28649387" vertical-offset="0" max-vertical-offset="733">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="10" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.6957708" vertical-offset="0" max-vertical-offset="733">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/res/layout/loading_screen.xml">
@@ -867,26 +864,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml">
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="10" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Samples/AnimationsDemo/src/com/example/android/animationsdemo/CardFlipActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="57" selection-start="5325" selection-end="5325" vertical-scroll-proportion="0.0" vertical-offset="1830" max-vertical-offset="2565">
+        <state line="88" column="28" selection-start="2699" selection-end="2709" vertical-scroll-proportion="0.0" vertical-offset="814" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1514" selection-end="1676" vertical-scroll-proportion="0.20190996" vertical-offset="347" max-vertical-offset="4470">
+        <state line="405" column="8" selection-start="15262" selection-end="15262" vertical-scroll-proportion="8.103683" vertical-offset="0" max-vertical-offset="7110">
           <folding>
-            <element signature="e#2748#4431#0" expanded="true" />
-            <element signature="e#4429#4430#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5431#5566#0" expanded="true" />
+            <element signature="e#5555#5556#0" expanded="true" />
+            <element signature="e#8262#10059#0" expanded="true" />
+            <element signature="e#9706#9965#0" expanded="true" />
+            <element signature="e#9963#9964#0" expanded="true" />
+            <element signature="e#10057#10058#0" expanded="true" />
+            <element signature="e#10202#10414#0" expanded="true" />
+            <element signature="e#10399#10400#0" expanded="true" />
           </folding>
         </state>
       </provider>
