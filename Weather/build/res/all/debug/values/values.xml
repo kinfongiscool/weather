@@ -4,12 +4,15 @@
     <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/dimens.xml -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="button_edge">10dp</dimen>
     <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/strings.xml -->
     <string name="action_settings">Settings</string>
     <string name="app_name">EasyWeather</string>
     <string name="close">Close</string>
+    <string name="daily_header">This week:</string>
+    <string name="hourly_header">Today:</string>
     <string name="look_ahead">Look ahead</string>
-    <string name="main_text">Current weather conditions\nare this right now</string>
+    <string name="main_text">Content Loading</string>
     <string name="temperature">00°</string>
     <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Light">

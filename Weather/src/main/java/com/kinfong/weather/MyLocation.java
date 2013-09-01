@@ -114,10 +114,10 @@ public class MyLocation {
 
             Location net_loc = null, gps_loc = null;
             if(gps_enabled) {
-                gps_loc=lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                gps_loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             }
             if(network_enabled) {
-                net_loc=lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                net_loc = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             }
 
             //if there are both values use the latest one

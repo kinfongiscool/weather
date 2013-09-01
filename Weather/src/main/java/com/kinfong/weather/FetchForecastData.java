@@ -29,6 +29,9 @@ public class FetchForecastData {
     private HttpResponse response;
     protected JSONObject data;
 
+    AndroidHttpClient client = AndroidHttpClient.newInstance("Android");
+
+
     public FetchForecastData(Double latitude, Double longitude, String API_KEY){
         this.API_KEY = API_KEY;
         String forecastUrl = buildForecastUrl(latitude, longitude);
@@ -89,6 +92,7 @@ public class FetchForecastData {
         protected void onPostExecute(HttpResponse res){
             status = res.getStatusLine().getStatusCode();
             response = res;
+            client.close();
         }
     }
 }

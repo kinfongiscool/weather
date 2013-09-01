@@ -7,68 +7,96 @@
               android:background="#c0000000">
 
     <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#000000">
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:id="@+id/hourly_summary"
-            android:text="hourly summary"
-            android:textSize="28dp"
-            android:textIsSelectable="true"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/hourly_icon"
-                />
-        <ImageView
-                android:layout_height="@android:dimen/notification_large_icon_height"
-                android:layout_width="@android:dimen/notification_large_icon_width"
-                android:id="@+id/hourly_icon"
-                android:src="@drawable/ic_launcher"
-                android:layout_margin="5dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:background="#000000">
-        <TextView
+            >
+        <ImageButton
+                android:layout_height="@android:dimen/app_icon_size"
+                android:layout_width="@android:dimen/app_icon_size"
+                android:id="@+id/un_popup"
+                android:background="@drawable/un_popup"
+                android:layout_gravity="right|center_vertical"
+                android:alpha=".7"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="3dp"/>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:id="@+id/daily_summary"
-                android:text="daily summary"
-                android:textSize="28dp"
-                android:textIsSelectable="true"
+                android:id="@+id/daily_layout"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/daily_icon"
-                />
-        <ImageView
-                android:layout_height="@android:dimen/notification_large_icon_height"
-                android:layout_width="@android:dimen/notification_large_icon_width"
-                android:id="@+id/daily_icon"
-                android:src="@drawable/ic_launcher"
-                android:layout_margin="5dp"/>
-    </RelativeLayout>
+                android:layout_alignParentRight="true">
+            <ImageView
+                    android:layout_height="@android:dimen/notification_large_icon_height"
+                    android:layout_width="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/daily_icon"
+                    android:src="@drawable/ic_launcher"
+                    android:layout_margin="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"/>
 
-    <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:background="#000000">
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/close_button"
-        android:text="Close"
-        android:layout_gravity="right|center_vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"/>
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/daily_summary"
+                    android:text="daily summary"
+                    android:textSize="20dp"
+                    android:textIsSelectable="true"
+                    android:layout_below="@+id/daily_header"
+                    android:layout_toRightOf="@+id/daily_icon"/>
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/daily_header"
+                    android:id="@+id/daily_header"
+                    android:layout_alignTop="@+id/daily_icon"
+                    android:layout_toRightOf="@+id/daily_icon"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hourly_layout"
+                android:layout_above="@+id/daily_layout"
+                android:layout_alignParentLeft="true">
+
+            <ImageView
+                    android:layout_height="@android:dimen/notification_large_icon_height"
+                    android:layout_width="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/hourly_icon"
+                    android:src="@drawable/ic_launcher"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"/>
+
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/hourly_summary"
+                    android:text="hourly summary"
+                    android:textSize="20dp"
+                    android:textIsSelectable="true"
+                    android:layout_below="@+id/hourly_header"
+                    android:layout_toRightOf="@+id/hourly_icon"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/hourly_header"
+                    android:id="@+id/hourly_header"
+                    android:layout_alignTop="@+id/hourly_icon"
+                    android:layout_toRightOf="@+id/hourly_icon"/>
+
+        </RelativeLayout>
     </RelativeLayout>
 
 </LinearLayout>

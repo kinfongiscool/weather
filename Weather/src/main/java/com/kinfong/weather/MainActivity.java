@@ -11,8 +11,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -33,6 +37,10 @@ public class MainActivity extends Activity {
     ImageView mainImage;
     TextView mainText;
     TextView temperatureText;
+    ImageView hourlyIcon;
+    TextView hourlySummary;
+    ImageView dailyIcon;
+    TextView dailySummary;
 
     private static Location location;
     private static double latitude;
@@ -47,7 +55,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        buildLoadingScreen();
+
         buildUi();
+        go();
+    }
+
+//    public void buildLoadingScreen() {
+//        ImageView logo = (ImageView) findViewById(R.id.logo);
+//        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.logo_spin);
+//        logo.startAnimation(hyperspaceJumpAnimation);
+//    }
+
+    public void go() {
         getLocationOnce();
         retrieveLocation();
     }
@@ -60,14 +80,55 @@ public class MainActivity extends Activity {
         mainText = (TextView) findViewById(R.id.main_text);
         temperatureText = (TextView) findViewById(R.id.temperature);
 
-        Button lookAhead = (Button) findViewById(R.id.look_ahead);
-        lookAhead.getBackground().setColorFilter(0x60606060, PorterDuff.Mode.MULTIPLY);
-        lookAhead.setOnClickListener(new View.OnClickListener() {
+        hourlyIcon = (ImageView) findViewById(R.id.hourly_icon);
+        hourlySummary = (TextView) findViewById(R.id.hourly_summary);
+        dailyIcon = (ImageView) findViewById(R.id.daily_icon);
+        dailySummary = (TextView) findViewById(R.id.daily_summary);
+
+        final ImageView popupButton = (ImageView) findViewById(R.id.popup_button);
+        popupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Fragment fragment = (Fragment) getFragmentManager().findFragmentById(R.layout.popup);
-//                Bundle args = new Bundle();
-//                fragment.setArguments(args);
+                LayoutInflater layoutInflater
+                        = (LayoutInflater)getBaseContext()
+                        .getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView = layoutInflater.inflate(R.layout.popup, null);
+                final PopupWindow popupWindow = new PopupWindow(
+                        popupView,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+                hourlyIcon = (ImageView) popupView.findViewById(R.id.hourly_icon);
+                hourlySummary = (TextView) popupView.findViewById(R.id.hourly_summary);
+                dailyIcon = (ImageView) popupView.findViewById(R.id.daily_icon);
+                dailySummary = (TextView) popupView.findViewById(R.id.daily_summary);
+
+                hourlyIcon.setImageDrawable(findIcon(mData.getHourlyIcon()));
+                hourlySummary.setText(mData.getHourlySummary());
+                dailyIcon.setImageDrawable(findIcon(mData.getDailyIcon()));
+                dailySummary.setText(mData.getDailySummary());
+//                updatePopup();
+
+                ImageButton unPopup = (ImageButton)popupView.findViewById(R.id.un_popup);
+                unPopup.setOnClickListener(new Button.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                popupWindow.showAtLocation(popupButton, 80, 0, 0);
+
+            }});
+
+
+        final ImageView refreshButton = (ImageView) findViewById(R.id.refresh);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                go();
             }
         });
     }
@@ -192,14 +253,20 @@ public class MainActivity extends Activity {
         mainImage.setImageDrawable(findIcon(mData.getMinutelyIcon()));
     }
 
-    /**
-     * Makes sure that the timerTask from MyLocation stops, preventing crashes.
-     * Also quits the app when paused.
-     */
-    protected void onPause() {
+//    private void updatePopup() {
+//        hourlyIcon.setImageDrawable(findIcon(mData.getHourlyIcon()));
+//        hourlySummary.setText(mData.getHourlySummary());
+//        dailyIcon.setImageDrawable(findIcon(mData.getDailyIcon()));
+//        dailySummary.setText(mData.getDailySummary());
+//    }
+
+//    /**
+//     * Makes sure that the timerTask from MyLocation stops, preventing crashes.
+//     * Also quits the app when paused.
+//     */
+//    protected void onPause() {
 //        myLocation.cancelTimer();
-        finish();
-    }
+//    }
 
     /**
      * Returns appropriate icon depending on weather conditions.

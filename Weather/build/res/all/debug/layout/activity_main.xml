@@ -24,7 +24,7 @@
             android:paddingTop="30dp"
             android:gravity="right"
             android:paddingRight="16dp"
-            android:layout_above="@+id/look_ahead"
+            android:layout_above="@+id/popup_button"
             android:layout_alignParentRight="true"
             android:layout_toRightOf="@+id/temperature"/>
 
@@ -36,22 +36,43 @@
             android:textColor="#ffffff"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:paddingLeft="16dp"
+            android:paddingLeft="10dp"
             android:textSize="100dp"
-            android:textIsSelectable="false"/>
+            android:textIsSelectable="false"
+            tools:ignore="SpUsage"/>
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/look_ahead"
-        android:text="@string/look_ahead"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:textColor="#8f8f8f"
-        android:textSize="20dp"
-        android:textStyle="italic"/>
-        <!--android:paddingRight="16dp"-->
-        <!--android:paddingBottom="16dp"/>-->
+    <!--<Button-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:id="@+id/look_ahead"-->
+        <!--android:text="@string/look_ahead"-->
+        <!--android:textColor="#8f8f8f"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textStyle="italic"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignRight="@+id/main_text"/>-->
+
+    <ImageButton
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:id="@+id/refresh"
+            android:background="@drawable/refresh"
+            android:alpha=".7"
+            android:clickable="false"
+            android:layout_margin="3dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/popup_button"/>
+    <ImageButton
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:id="@+id/popup_button"
+            android:background="@drawable/popup"
+            android:alpha=".7"
+            android:clickable="true"
+            android:layout_margin="3dp"
+            android:cropToPadding="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
 
 
 
