@@ -1,7 +1,7 @@
 package com.kinfong.weather;
 
 import android.app.Activity;
-import android.app.DialogFragment;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -59,6 +59,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      * Whether or not we're showing the back of the card (otherwise showing the front).
      */
     private boolean mShowingBack = false;
+
+    private boolean readyToFlip = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -368,7 +370,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      * @param location Location holding desired data
      */
     public static void setLocation(Location location) {
-        this.location = location;
+        MainActivity.location = location;
         latitude = location.getLatitude();
         longitude = location.getLongitude();
     }
@@ -384,7 +386,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             public void run() {
                 if (fetchForecastData.getData() != null) {
                     forecastObject = fetchForecastData.getData();
-                    setup();
+                    extractData(forecastObject);
                     h.removeCallbacks(this);
                 } else {
                     retrieveForecastData();
@@ -394,16 +396,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
     private static void retrieveForecastData() {
         retrieveForecastData(getForecastDataDefaultDelay);
-    }
-
-    /**
-     * Extracts data in preparation for changing the UI
-     */
-    public static void setup() {
-        // extract important data
-        extractData(forecastObject);
-        // update UI
-        updateUi();
     }
 
     /**
