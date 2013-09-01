@@ -5,6 +5,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_edge">10dp</dimen>
+    <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/ids.xml -->
+    <item name="action_flip" type="id"/>
+    <item name="action_next" type="id"/>
+    <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/integers.xml -->
+    <integer name="card_flip_time_full">500</integer>
+    <integer name="card_flip_time_half">250</integer>
     <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/strings.xml -->
     <string name="action_settings">Settings</string>
     <string name="app_name">EasyWeather</string>

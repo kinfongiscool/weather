@@ -1,5 +1,6 @@
 package com.kinfong.weather;
 
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,7 +41,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private static MyLocation myLocation;
     private static WeatherData mData;
 
-    private static Context context = MainActivity.context;
+    private static Context context;
 
     private static Location location;
     private static double latitude;
@@ -58,24 +60,19 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     /**
      * Whether or not we're showing the back of the card (otherwise showing the front).
      */
-    private boolean mShowingBack = false;
+    private static boolean mShowingBack = false;
 
-    private boolean readyToFlip = false;
+    private static boolean readyToFlip = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.loading_screen);
 
-        //start finding location and getting weather data
-        getLocationOnce();
-        retrieveLocation();
-
+        context = MyApplication.getAppContext();
 
         if (savedInstanceState == null) {
-            // If there is no saved instance state, add a fragment representing the
-            // front of the card to this activity. If there is saved instance state,
-            // this fragment will have already been added to the activity.
+
             getFragmentManager()
                     .beginTransaction()
                     .add(R.id.container, new LoadingScreenFragment())
@@ -84,27 +81,25 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
         }
 
-        // Monitor back stack changes to ensure the action bar shows the appropriate
-        // button (either "photo" or "info").
         getFragmentManager().addOnBackStackChangedListener(this);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // Navigate "up" the demo structure to the launchpad activity.
-                // See http://developer.android.com/design/patterns/navigation.html for more.
-                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-                return true;
-
-            case R.id.action_flip:
-                flipCard();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                // Navigate "up" the demo structure to the launchpad activity.
+//                // See http://developer.android.com/design/patterns/navigation.html for more.
+//                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
+//                return true;
+//
+//            case R.id.action_flip:
+//                flipCard();
+//                return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void flipCard() {
         if (mShowingBack) {
@@ -161,21 +156,10 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         invalidateOptionsMenu();
     }
 
-
-
-
-//    public void buildLoadingScreen() {
-//        ImageView logo = (ImageView) findViewById(R.id.logo);
-//        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(this, R.anim.logo_spin);
-//        logo.startAnimation(hyperspaceJumpAnimation);
-//    }
-
-
-
     /**
      * A fragment representing the front of the card.
      */
-    public static class LoadingScreenFragment extends Fragment {
+    public class LoadingScreenFragment extends Fragment {
         public LoadingScreenFragment() {
         }
 
@@ -185,19 +169,26 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             View rootView = inflater.inflate(R.layout.loading_screen, container, false);
             // build UI
             ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
-            Animation logoSpin = AnimationUtils.loadAnimation(getActivity(), R.anim.logo_spin);
-            logo.startAnimation(logoSpin);
+
+            final float ROTATE_FROM = 0.0f;
+            final float ROTATE_TO = -1.0f * 360.0f;
+
+            RotateAnimation r; // = new RotateAnimation(ROTATE_FROM, ROTATE_TO);
+            r = new RotateAnimation(ROTATE_FROM, ROTATE_TO, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            r.setStartOffset(1000);
+            r.setDuration((long) 2500);
+            r.setRepeatCount(-1);
+            logo.startAnimation(r);
 
             //Start loading activities
             getLocationOnce();
             retrieveLocation();
 
-
+            checkIfReadyToFlip();
 
             return rootView;
         }
     }
-
 
     /**
      * A fragment representing the back of the card (MainActivity).
@@ -227,6 +218,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             hourlySummary = (TextView) rootView.findViewById(R.id.hourly_summary);
             dailyIcon = (ImageView) rootView.findViewById(R.id.daily_icon);
             dailySummary = (TextView) rootView.findViewById(R.id.daily_summary);
+
+            updateUi();
 
             final ImageView popupButton = (ImageView) rootView.findViewById(R.id.popup_button);
             popupButton.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +265,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                 @Override
                 public void onClick(View v) {
                     getLocationOnce();
-                    retrieveLocation();;
+                    retrieveLocation();
+                    readyToFlip = false;
+                    flipCard();
                 }
             });
 
@@ -337,7 +332,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             }
         };
         myLocation = new MyLocation();
-        myLocation.getLocation(MainActivity.context, locationResult);
+        myLocation.getLocation(context, locationResult);
     }
 
     /**
@@ -387,6 +382,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                 if (fetchForecastData.getData() != null) {
                     forecastObject = fetchForecastData.getData();
                     extractData(forecastObject);
+                    readyToFlip = true;
                     h.removeCallbacks(this);
                 } else {
                     retrieveForecastData();
@@ -397,6 +393,30 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private static void retrieveForecastData() {
         retrieveForecastData(getForecastDataDefaultDelay);
     }
+
+
+        /**
+         * Waits for data to be parsed before moving on.
+         * @param interval long time to delay
+         */
+        private void checkIfReadyToFlip(long interval) {
+            final Handler h = new Handler();
+            h.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (readyToFlip == true) {
+                        flipCard();
+                        h.removeCallbacks(this);
+                    } else {
+                        checkIfReadyToFlip();
+                    }
+                }
+            }, interval); /* todo:simulate a slow network */
+        }
+        private void checkIfReadyToFlip() {
+            checkIfReadyToFlip(1000);
+        }
+
 
     /**
      * Pulls relevant info from JSONObject
@@ -420,50 +440,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             mData.setDailySummary(dailyObject.getString("summary"));
             mData.setDailyIcon(dailyObject.getString("icon"));
         }catch (Exception e) {
+        }finally {
+
         }
     }
-
-
-
-//    private void updatePopup() {
-//        hourlyIcon.setImageDrawable(findIcon(mData.getHourlyIcon()));
-//        hourlySummary.setText(mData.getHourlySummary());
-//        dailyIcon.setImageDrawable(findIcon(mData.getDailyIcon()));
-//        dailySummary.setText(mData.getDailySummary());
-//    }
-
-//    /**
-//     * Makes sure that the timerTask from MyLocation stops, preventing crashes.
-//     * Also quits the app when paused.
-//     */
-//    protected void onPause() {
-//        myLocation.cancelTimer();
-//    }
-
-
-
-//    /**
-//     * Fragment class to display future weather info
-//     */
-//    public class LookAheadFragment extends DialogFragment {
-//        @Override
-//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                                 Bundle savedInstanceState) {
-//            // Remove border from popup window
-//            setStyle(DialogFragment.STYLE_NO_FRAME, getTheme());
-//
-//            // Inflate the layout for this fragment
-//            View rootView = inflater.inflate(R.layout.popup, container, false);
-//            // Set up ui elements
-//            TextView hourlySummary = (TextView) rootView.findViewById(R.id.hourly_summary);
-//            hourlySummary.setText(mData.getHourlySummary());
-//            ImageView hourlyIcon = (ImageView) rootView.findViewById(R.id.hourly_icon);
-//            hourlyIcon.setImageDrawable(findIcon(rootView.findViewById(R.id.hourly_icon).toString()));
-//            TextView dailySummary = (TextView) rootView.findViewById(R.id.daily_summary);
-//            dailySummary.setText(mData.getHourlySummary());
-//            ImageView dailyIcon = (ImageView) rootView.findViewById(R.id.daily_icon);
-//            dailyIcon.setImageDrawable(findIcon(rootView.findViewById(R.id.daily_icon).toString()));
-//            return rootView;
-//        }
-//    }
 }
