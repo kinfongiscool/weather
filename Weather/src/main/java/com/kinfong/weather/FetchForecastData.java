@@ -22,14 +22,11 @@ import java.util.TimeZone;
 public class FetchForecastData {
 
     private final String API_URL = "https://api.forecast.io/forecast/";
-    private final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     private String API_KEY;
 
     protected int status;
     private HttpResponse response;
     protected JSONObject data;
-
-    AndroidHttpClient client = AndroidHttpClient.newInstance("Android");
 
 
     public FetchForecastData(Double latitude, Double longitude, String API_KEY){
@@ -39,10 +36,10 @@ public class FetchForecastData {
     }
 
     /**
-     * Build forecast url for Dark Sky API.
+     * Build forecast url for Forecast API.
      * @param latitude Double latitude desired
      * @param longitude Double longitude desired
-     * @return String formatted string for use in Dark Sky API
+     * @return String formatted string for use in Forecast API
      */
     private String buildForecastUrl(Double latitude, Double longitude) {
         return API_URL + API_KEY + "/" + latitude.toString() + "," + longitude.toString();
@@ -61,7 +58,7 @@ public class FetchForecastData {
     }
 
     /**
-     * AsyncTask to retrieve data from Dark Sky API service.
+     * AsyncTask to retrieve data from Forecast API service.
      */
     private class FetchDataAsync extends AsyncTask <String, Void, HttpResponse> {
 
@@ -86,13 +83,13 @@ public class FetchForecastData {
             } catch(Exception e) {
                 e.printStackTrace();
             }
+            client.close();
             return response;
         }
 
         protected void onPostExecute(HttpResponse res){
             status = res.getStatusLine().getStatusCode();
             response = res;
-            client.close();
         }
     }
 }

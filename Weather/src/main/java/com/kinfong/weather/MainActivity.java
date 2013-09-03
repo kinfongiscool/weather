@@ -46,10 +46,10 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private static Location location;
     private static double latitude;
     private static double longitude;
-    private static long retrieveLocationDefaultDelay = 5000;
+    private static long retrieveLocationDefaultDelay = 0;
     private static JSONObject forecastObject;
     private static FetchForecastData fetchForecastData;
-    private static long getForecastDataDefaultDelay = 1000;
+    private static long getForecastDataDefaultDelay = 0;
 
 
     /**
@@ -84,23 +84,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         getFragmentManager().addOnBackStackChangedListener(this);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                // Navigate "up" the demo structure to the launchpad activity.
-//                // See http://developer.android.com/design/patterns/navigation.html for more.
-//                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-//                return true;
-//
-//            case R.id.action_flip:
-//                flipCard();
-//                return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
     private void flipCard() {
         if (mShowingBack) {
             getFragmentManager().popBackStack();
@@ -108,38 +91,20 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }
 
         // Flip to the back.
-
         mShowingBack = true;
 
         // Create and commit a new fragment transaction that adds the fragment for the back of
         // the card, uses custom animations, and is part of the fragment manager's back stack.
-
         getFragmentManager()
                 .beginTransaction()
 
-                        // Replace the default fragment animations with animator resources representing
-                        // rotations when switching to the back of the card, as well as animator
-                        // resources representing rotations when flipping back to the front (e.g. when
-                        // the system Back button is pressed).
                 .setCustomAnimations(
                         R.animator.card_flip_right_in, R.animator.card_flip_right_out,
                         R.animator.card_flip_left_in, R.animator.card_flip_left_out)
-
-                        // Replace any fragments currently in the container view with a fragment
-                        // representing the next page (indicated by the just-incremented currentPage
-                        // variable).
                 .replace(R.id.container, new MainFragment())
-
-                        // Add this transaction to the back stack, allowing users to press Back
-                        // to get to the front of the card.
                 .addToBackStack(null)
-
-                        // Commit the transaction.
                 .commit();
 
-        // Defer an invalidation of the options menu (on modern devices, the action bar). This
-        // can't be done immediately because the transaction may not yet be committed. Commits
-        // are asynchronous in that they are posted to the main thread's message loop.
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -170,6 +135,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             // build UI
             ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
 
+            // RotateAnimation
             final float ROTATE_FROM = 0.0f;
             final float ROTATE_TO = -1.0f * 360.0f;
 
@@ -221,6 +187,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
             updateUi();
 
+
+
             final ImageView popupButton = (ImageView) rootView.findViewById(R.id.popup_button);
             popupButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -244,7 +212,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     hourlySummary.setText(mData.getHourlySummary());
                     dailyIcon.setImageDrawable(findIcon(mData.getDailyIcon()));
                     dailySummary.setText(mData.getDailySummary());
-//                updatePopup();
 
                     ImageButton unPopup = (ImageButton)popupView.findViewById(R.id.un_popup);
                     unPopup.setOnClickListener(new Button.OnClickListener(){
@@ -255,7 +222,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                             popupWindow.dismiss();
                         }});
 
-                    popupWindow.showAtLocation(popupButton, 80, 0, 0);
+                    popupWindow.showAtLocation(popupButton, 119, 0, 0);
 
                 }});
 
@@ -395,27 +362,27 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
 
 
-        /**
-         * Waits for data to be parsed before moving on.
-         * @param interval long time to delay
-         */
-        private void checkIfReadyToFlip(long interval) {
-            final Handler h = new Handler();
-            h.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (readyToFlip == true) {
-                        flipCard();
-                        h.removeCallbacks(this);
-                    } else {
-                        checkIfReadyToFlip();
-                    }
+    /**
+     * Waits for data to be parsed before moving on.
+     * @param interval long time to delay
+     */
+    private void checkIfReadyToFlip(long interval) {
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (readyToFlip == true) {
+                    flipCard();
+                    h.removeCallbacks(this);
+                } else {
+                    checkIfReadyToFlip();
                 }
-            }, interval); /* todo:simulate a slow network */
-        }
-        private void checkIfReadyToFlip() {
-            checkIfReadyToFlip(1000);
-        }
+            }
+        }, interval); /* todo:simulate a slow network */
+    }
+    private void checkIfReadyToFlip() {
+        checkIfReadyToFlip(1000);
+    }
 
 
     /**
