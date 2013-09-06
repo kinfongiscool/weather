@@ -1,17 +1,17 @@
 # incremental data. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1378151043203 3156 49222976becdee61276c396e62faf9fb2d6768d6 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\FetchForecastData$FetchDataAsync.class
+1378400324375 3156 37b2795b52fccbda7302545b025a696047fe5a2e C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\FetchForecastData$FetchDataAsync.class
 1378221683903 977 3a3b30f6fac9ba771c5ec3d36803b760228f8261 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity$5.class
 1378221683900 1294 8871662add477716959fea3c8e6a09d1d1df3940 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity$3.class
 1378002324955 543 40817cd18a4e8c214f2c808426a99049ffdbadf1 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\R$animator.class
 1378049495036 473 2b0e7e8865bea0c0f757a3671edcd23d2cd9c55b C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\R$layout.class
 1378221683902 1134 91e451587bd8c8f69f3da989c3999f276430c585 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity$4.class
-1378225505071 7078 64c55ec17191f72af57b11bd76fd7f6463311116 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity.class
+1378476125558 7063 9ea196260e33f5168c3df7626da3a6f9b2120699 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity.class
 1378224660748 2941 4f0d78b0afc18cbe8ae3b215317b8593c2f72523 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MainActivity$MainFragment$1.class
 1378049495042 842 ee3ce9e457c3f46cc289daba8ede2205ac278f62 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\R.class
 1378049495034 458 4b53f76be14ae7c70c8644b5e7a63f2d36180136 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\R$integer.class
-1378151043207 2123 91cc20e623ff218deafa3cf77a5cb24a8db70c51 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\FetchForecastData.class
+1378400324380 2046 4e6a9e265cabb3a7bce466b495876402357d10b0 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\FetchForecastData.class
 1377901812196 1676 ea93a77e18d6188f5d02a90bcdab3049f5a5eedf C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MyLocation$2.class
 1377901812199 1635 594c356bd5661e7d6903b1df4f68a15f8dc8ed34 C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\MyLocation$GetLastLocation.class
 1378002324957 343 1e6b1b07a18edb097e3397aa3485bfeaf1bbc92d C:\Development\Repositories\WeatherProject\Weather\build\classes\debug\com\kinfong\weather\R$attr.class

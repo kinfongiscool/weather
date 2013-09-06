@@ -1,22 +1,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="10000000dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_image"
-        android:src="@drawable/weather_default"
-        android:layout_above="@+id/temperature"
-        android:layout_centerHorizontal="true"/>
+            android:layout_width="10000000dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_image"
+            android:src="@drawable/weather_default"
+            android:layout_above="@+id/temperature"
+            android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/main_text"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/main_text"
             android:text="@string/main_text"
             android:textColor="#ffffff"
             android:textSize="25dp"
@@ -28,8 +28,8 @@
             android:layout_toRightOf="@+id/temperature"/>
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:id="@+id/temperature"
             android:text="@string/temperature"
             android:textColor="#ffffff"
@@ -41,15 +41,15 @@
             tools:ignore="SpUsage"/>
 
     <!--<Button-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:id="@+id/look_ahead"-->
-        <!--android:text="@string/look_ahead"-->
-        <!--android:textColor="#8f8f8f"-->
-        <!--android:textSize="16dp"-->
-        <!--android:textStyle="italic"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignRight="@+id/main_text"/>-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:id="@+id/look_ahead"-->
+    <!--android:text="@string/look_ahead"-->
+    <!--android:textColor="#8f8f8f"-->
+    <!--android:textSize="16dp"-->
+    <!--android:textStyle="italic"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignRight="@+id/main_text"/>-->
 
     <ImageButton
             android:layout_width="@android:dimen/app_icon_size"
@@ -58,7 +58,7 @@
             android:background="@drawable/refresh"
             android:alpha="1"
             android:clickable="false"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/popup_button"/>
     <ImageButton

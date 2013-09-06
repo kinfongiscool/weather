@@ -324,7 +324,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }, interval); /* todo:simulate a slow network */
     }
     private static void retrieveLocation() {
-        retrieveLocation(retrieveLocationDefaultDelay);
+        retrieveLocation(0);
     }
 
     /**
@@ -358,7 +358,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }, interval); /* todo:simulate a slow network */
     }
     private static void retrieveForecastData() {
-        retrieveForecastData(getForecastDataDefaultDelay);
+        retrieveForecastData(0);
     }
 
 
@@ -381,7 +381,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }, interval); /* todo:simulate a slow network */
     }
     private void checkIfReadyToFlip() {
-        checkIfReadyToFlip(1000);
+        checkIfReadyToFlip(0);
     }
 
 

@@ -58,7 +58,7 @@
             android:background="@drawable/refresh"
             android:alpha="1"
             android:clickable="false"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/popup_button"/>
     <ImageButton
