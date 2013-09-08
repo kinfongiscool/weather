@@ -19,6 +19,7 @@
     <string name="hourly_header">Today:</string>
     <string name="look_ahead">Look ahead</string>
     <string name="main_text">Content Loading</string>
+    <string name="service_name">EasyWeather Service</string>
     <string name="temperature">00°</string>
     <!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Light">

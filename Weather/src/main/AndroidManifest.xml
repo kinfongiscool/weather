@@ -25,6 +25,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<service android:name=".LocationService" android:process=":my_service" />-->
+        <service
+                android:name=".LocationService"
+                android:icon="@drawable/logo"
+                android:label="@string/service_name" >
+        </service>
+
+        <receiver android:name="MyScheduleReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="MyStartServiceReceiver" >
+        </receiver>
     </application>
 
 </manifest>

@@ -94,7 +94,8 @@ public final class R {
         public static final int hourly_header=0x7f090004;
         public static final int look_ahead=0x7f090005;
         public static final int main_text=0x7f090006;
-        public static final int temperature=0x7f090007;
+        public static final int service_name=0x7f090007;
+        public static final int temperature=0x7f090008;
     }
     public static final class style {
         /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/styles.xml 

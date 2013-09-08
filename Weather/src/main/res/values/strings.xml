@@ -9,6 +9,6 @@
     <string name="close">Close</string>
     <string name="hourly_header">Today:</string>
     <string name="daily_header">This week:</string>
-
+    <string name="service_name">EasyWeather Service</string>
 
 </resources>

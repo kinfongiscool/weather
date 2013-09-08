@@ -4,13 +4,16 @@ package com.kinfong.weather;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 //import android.support.v4.app.Fragment;
+import android.os.IBinder;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +28,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -51,6 +55,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private static FetchForecastData fetchForecastData;
     private static long getForecastDataDefaultDelay = 0;
 
+    boolean mIsBound;
+    private LocationService locationService;
+
 
     /**
      * A handler object, used for deferring UI operations.
@@ -68,6 +75,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_screen);
+
+        doBindService();
 
         context = MyApplication.getAppContext();
 
@@ -147,7 +156,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             logo.startAnimation(r);
 
             //Start loading activities
-            getLocationOnce();
+//            getLocationOnce();
+            getLocationFromService();
             retrieveLocation();
 
             checkIfReadyToFlip();
@@ -231,7 +241,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             refreshButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getLocationOnce();
+//                    getLocationOnce();
+                    getLocationFromService();
                     retrieveLocation();
                     readyToFlip = false;
                     flipCard();
@@ -288,23 +299,97 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }
     }
 
+//    /**
+//     * Get the location once.
+//     */
+//    public static void getLocationOnce() {
+//        MyLocation.LocationResult locationResult = new MyLocation.LocationResult() {
+//            @Override
+//            public void gotLocation(Location location){
+//                setLocation(location);
+//            }
+//        };
+//        myLocation = new MyLocation();
+//        myLocation.getLocation(context, locationResult);
+//    }
+
+    private static LocationService mBoundService;
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder binder) {
+            mBoundService = ( (LocationService.LocationBinder) binder).getService();
+            Toast.makeText(MainActivity.this, "Connected", Toast.LENGTH_SHORT)
+                    .show();
+        }
+        public void onServiceDisconnected(ComponentName className) {
+            mBoundService = null;
+        }
+    };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bindService(new Intent(this, LocationService.class), mConnection,
+                Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unbindService(mConnection);
+    }
+
+    void doBindService() {
+        // Establish a connection with the service.  We use an explicit
+        // class name because we want a specific service implementation that
+        // we know will be running in our own process (and thus won't be
+        // supporting component replacement by other applications).
+        bindService(new Intent(this, LocationService.class), mConnection, Context.BIND_AUTO_CREATE);
+        mIsBound = true;
+    }
+
+    void doUnbindService() {
+        if (mIsBound) {
+            // Detach our existing connection.
+            unbindService(mConnection);
+            mIsBound = false;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        doUnbindService();
+    }
+
+
     /**
-     * Get the location once.
+     * Waits for location data to be received at some specified interval
      */
-    public static void getLocationOnce() {
-        MyLocation.LocationResult locationResult = new MyLocation.LocationResult() {
+    private static void getLocationFromService(long interval) {
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable() {
             @Override
-            public void gotLocation(Location location){
-                setLocation(location);
+            public void run() {
+                if (mBoundService != null) {
+                    // start next step (start async task)
+                    if(mBoundService.getLocation() != null) {
+                        location = mBoundService.getLocation();
+                        retrieveLocation();
+                        h.removeCallbacks(this);
+                    }
+                } else {
+                    getLocationFromService();
+                }
             }
-        };
-        myLocation = new MyLocation();
-        myLocation.getLocation(context, locationResult);
+        }, interval); /* todo:simulate a slow network */
+    }
+    private static void getLocationFromService() {
+        getLocationFromService(0);
     }
 
     /**
      * Waits for location data to be received at some specified interval
-     * By Mr. Victor (ude@learnovatelabs.com)
      */
     private static void retrieveLocation(long interval) {
         final Handler h = new Handler();
@@ -378,7 +463,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     checkIfReadyToFlip();
                 }
             }
-        }, interval); /* todo:simulate a slow network */
+        }, interval);
     }
     private void checkIfReadyToFlip() {
         checkIfReadyToFlip(0);
