@@ -62,8 +62,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     private static boolean readyToFlip = false;
 
-    public static Timer timer1 = new Timer("timer1", true);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,49 +152,69 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
             checkIfReadyToFlip();
 
-//            TextView loadingScreenText = (TextView) findViewById(R.id.loading_screen_text);
+            final TextView loadingScreenText = (TextView) rootView.findViewById(R.id.loading_screen_text);
 
-            TimerTask fiveSecTask = new TimerTask() {
+            loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Looper.prepare();
-                    Toast.makeText(MainActivity.this, "Still looking for location...", Toast.LENGTH_SHORT)
-                            .show();
+                    loadingScreenText.setText("Still looking for location...");
                 }
-            };
-            TimerTask uhOhTask = new TimerTask() {
+            }, 10000);
+            loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Uh oh, we have a problem.", Toast.LENGTH_SHORT)
-                            .show();
+                    loadingScreenText.setText("Having trouble finding your location.");
                 }
-            };
-            TimerTask preResetTask = new TimerTask() {
+            }, 16000);
+            loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(MainActivity.this, "Reset in 5, 4, 3, 2, 1.", Toast.LENGTH_SHORT)
-                            .show();
+                    loadingScreenText.setText("Hmm, we might have a problem.\nIs your GPS on?");
                 }
-            };
-            TimerTask resetTask = new TimerTask() {
+            }, 20000);
+            loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    loadingScreenText.setText("Try walking closer to a window.");
                 }
-            };
-
-            timer1.schedule(fiveSecTask, 500);
-            timer1.schedule(uhOhTask, 20000);
-            timer1.schedule(preResetTask, 23000);
-            timer1.schedule(resetTask, 25000);
+            }, 25000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("Sorry, this is embarrassing.");
+                }
+            }, 28000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("Make sure your GPS is on!");
+                }
+            }, 33000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("I'm still trying, hold on.");
+                }
+            }, 37000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("Well, something bad must have happened.\nYou should reset the app.");
+                }
+            }, 33000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("Still here? You should reset the app.");
+                }
+            }, 60000);
 
             return rootView;
         }
     }
 
-
+    private void reset() {
+    }
 
 
     /**

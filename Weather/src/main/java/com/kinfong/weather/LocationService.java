@@ -34,7 +34,6 @@ public class LocationService extends Service
             Log.e(TAG, "onLocationChanged: " + location);
             mLastLocation.set(location);
             MainActivity.retrieveLocation(location);
-            MainActivity.timer1.cancel();
             if(count >= 5) {
                 mLocationManager.removeUpdates(this);
             }
