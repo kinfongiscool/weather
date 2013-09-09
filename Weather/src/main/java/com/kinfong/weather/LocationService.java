@@ -31,6 +31,8 @@ public class LocationService extends Service
         {
             Log.e(TAG, "onLocationChanged: " + location);
             mLastLocation.set(location);
+            MainActivity.setLocation(location);
+            
         }
         @Override
         public void onProviderDisabled(String provider)

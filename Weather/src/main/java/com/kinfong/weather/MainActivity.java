@@ -157,7 +157,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
             //Start loading activities
 //            getLocationOnce();
-            getLocationFromService();
+//            getLocationFromService();
             retrieveLocation();
 
             checkIfReadyToFlip();
@@ -242,7 +242,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                 @Override
                 public void onClick(View v) {
 //                    getLocationOnce();
-                    getLocationFromService();
+//                    getLocationFromService();
                     retrieveLocation();
                     readyToFlip = false;
                     flipCard();
@@ -258,6 +258,15 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
          * @return Drawable icon that matches weather conditions.
          */
         public Drawable findIcon(String input) {
+//            Drawable d;
+//            switch(input){
+//                case "clear-day":
+//                    d = getResources().getDrawable(R.drawable.clear_day);
+//                    break;
+//                default:
+//                    d = getResources().getDrawable(R.drawable.weather_default);
+//                    break;
+//            }
             Drawable d;
             if(input.equals("clear-day")) {
                 d = getResources().getDrawable(R.drawable.clear_day);
@@ -313,6 +322,17 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 //        myLocation.getLocation(context, locationResult);
 //    }
 
+//    /**
+//     * Sets member variables to appropriate values after location is found.
+//     * @param location Location holding desired data
+//     */
+//    public static void setLocation(Location location) {
+//        MainActivity.location = location;
+//        latitude = location.getLatitude();
+//        longitude = location.getLongitude();
+//    }
+
+
     private static LocationService mBoundService;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -362,30 +382,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         doUnbindService();
     }
 
-
-    /**
-     * Waits for location data to be received at some specified interval
-     */
-    private static void getLocationFromService(long interval) {
-        final Handler h = new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mBoundService != null) {
-                    // start next step (start async task)
-                    if(mBoundService.getLocation() != null) {
-                        location = mBoundService.getLocation();
-                        retrieveLocation();
-                        h.removeCallbacks(this);
-                    }
-                } else {
-                    getLocationFromService();
-                }
-            }
-        }, interval); /* todo:simulate a slow network */
-    }
-    private static void getLocationFromService() {
-        getLocationFromService(0);
+    public static void setLocation(Location l) {
+        location = l;
     }
 
     /**
@@ -399,7 +397,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             public void run() {
                 if (location != null) {
                     // start next step (start async task)
-                    fetchForecastData = new FetchForecastData(latitude, longitude, API_KEY);
+                    fetchForecastData = new FetchForecastData(location.getLatitude(), location.getLongitude(), API_KEY);
                     retrieveForecastData();
                     h.removeCallbacks(this);
                 } else {
@@ -410,16 +408,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
     private static void retrieveLocation() {
         retrieveLocation(0);
-    }
-
-    /**
-     * Sets member variables to appropriate values after location is found.
-     * @param location Location holding desired data
-     */
-    public static void setLocation(Location location) {
-        MainActivity.location = location;
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
     }
 
     /**
@@ -446,7 +434,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         retrieveForecastData(0);
     }
 
-
     /**
      * Waits for data to be parsed before moving on.
      * @param interval long time to delay
@@ -468,7 +455,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private void checkIfReadyToFlip() {
         checkIfReadyToFlip(0);
     }
-
 
     /**
      * Pulls relevant info from JSONObject
