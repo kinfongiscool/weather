@@ -90,6 +90,7 @@ public class FetchForecastData {
         protected void onPostExecute(HttpResponse res){
             status = res.getStatusLine().getStatusCode();
             response = res;
+            MainActivity.retrieveForecastData(data);
         }
     }
 }

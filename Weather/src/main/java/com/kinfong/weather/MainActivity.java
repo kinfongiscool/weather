@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 //import android.support.v4.app.Fragment;
 import android.os.IBinder;
+import android.os.Looper;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,6 +33,9 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Class to do really cool stuff with the weather.
  * @author Kin
@@ -42,22 +46,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     public static final String API_KEY = "0692d0f09a1e18c05539495deed088d6";
 
-    private static MyLocation myLocation;
     private static WeatherData mData;
 
-    private static Context context;
-
-    private static Location location;
-    private static double latitude;
-    private static double longitude;
-    private static long retrieveLocationDefaultDelay = 0;
-    private static JSONObject forecastObject;
-    private static FetchForecastData fetchForecastData;
-    private static long getForecastDataDefaultDelay = 0;
-
     boolean mIsBound;
-    private LocationService locationService;
-
 
     /**
      * A handler object, used for deferring UI operations.
@@ -71,14 +62,14 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     private static boolean readyToFlip = false;
 
+    public static Timer timer1 = new Timer("timer1", true);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_screen);
 
         doBindService();
-
-        context = MyApplication.getAppContext();
 
         if (savedInstanceState == null) {
 
@@ -134,6 +125,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      * A fragment representing the front of the card.
      */
     public class LoadingScreenFragment extends Fragment {
+
         public LoadingScreenFragment() {
         }
 
@@ -158,13 +150,54 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             //Start loading activities
 //            getLocationOnce();
 //            getLocationFromService();
-            retrieveLocation();
+//            retrieveLocation();
 
             checkIfReadyToFlip();
+
+//            TextView loadingScreenText = (TextView) findViewById(R.id.loading_screen_text);
+
+            TimerTask fiveSecTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Looper.prepare();
+                    Toast.makeText(MainActivity.this, "Still looking for location...", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            };
+            TimerTask uhOhTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Toast.makeText(MainActivity.this, "Uh oh, we have a problem.", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            };
+            TimerTask preResetTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Toast.makeText(MainActivity.this, "Reset in 5, 4, 3, 2, 1.", Toast.LENGTH_SHORT)
+                            .show();
+                }
+            };
+            TimerTask resetTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            };
+
+            timer1.schedule(fiveSecTask, 500);
+            timer1.schedule(uhOhTask, 20000);
+            timer1.schedule(preResetTask, 23000);
+            timer1.schedule(resetTask, 25000);
 
             return rootView;
         }
     }
+
+
+
 
     /**
      * A fragment representing the back of the card (MainActivity).
@@ -243,9 +276,13 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                 public void onClick(View v) {
 //                    getLocationOnce();
 //                    getLocationFromService();
-                    retrieveLocation();
+//                    retrieveLocation();
                     readyToFlip = false;
                     flipCard();
+                    retrieveLocation(mBoundService.getLocation());
+//                    mBoundService.reset();
+//                    doUnbindService();
+//                    doBindService();
                 }
             });
 
@@ -382,56 +419,13 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         doUnbindService();
     }
 
-    public static void setLocation(Location l) {
-        location = l;
+    public static void retrieveLocation(Location location) {
+        new FetchForecastData(location.getLatitude(), location.getLongitude(), API_KEY);
     }
 
-    /**
-     * Waits for location data to be received at some specified interval
-     */
-    private static void retrieveLocation(long interval) {
-        final Handler h = new Handler();
-        final Location location = MainActivity.location;
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (location != null) {
-                    // start next step (start async task)
-                    fetchForecastData = new FetchForecastData(location.getLatitude(), location.getLongitude(), API_KEY);
-                    retrieveForecastData();
-                    h.removeCallbacks(this);
-                } else {
-                    retrieveLocation();
-                }
-            }
-        }, interval); /* todo:simulate a slow network */
-    }
-    private static void retrieveLocation() {
-        retrieveLocation(0);
-    }
-
-    /**
-     * Waits for data to be parsed before moving on.
-     * @param interval long time to delay
-     */
-    private static void retrieveForecastData(long interval) {
-        final Handler h = new Handler();
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (fetchForecastData.getData() != null) {
-                    forecastObject = fetchForecastData.getData();
-                    extractData(forecastObject);
-                    readyToFlip = true;
-                    h.removeCallbacks(this);
-                } else {
-                    retrieveForecastData();
-                }
-            }
-        }, interval); /* todo:simulate a slow network */
-    }
-    private static void retrieveForecastData() {
-        retrieveForecastData(0);
+    public static void retrieveForecastData(JSONObject data) {
+        extractData(data);
+        readyToFlip = true;
     }
 
     /**

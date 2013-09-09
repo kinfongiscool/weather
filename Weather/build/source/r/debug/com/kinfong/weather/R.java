@@ -52,23 +52,24 @@ public final class R {
          */
         public static final int action_flip=0x7f070000;
         public static final int action_next=0x7f070001;
-        public static final int action_settings=0x7f070012;
+        public static final int action_settings=0x7f070013;
         public static final int container=0x7f070007;
-        public static final int daily_header=0x7f07000d;
-        public static final int daily_icon=0x7f07000b;
-        public static final int daily_layout=0x7f07000a;
-        public static final int daily_summary=0x7f07000c;
-        public static final int hourly_header=0x7f070011;
-        public static final int hourly_icon=0x7f07000f;
-        public static final int hourly_layout=0x7f07000e;
-        public static final int hourly_summary=0x7f070010;
+        public static final int daily_header=0x7f07000e;
+        public static final int daily_icon=0x7f07000c;
+        public static final int daily_layout=0x7f07000b;
+        public static final int daily_summary=0x7f07000d;
+        public static final int hourly_header=0x7f070012;
+        public static final int hourly_icon=0x7f070010;
+        public static final int hourly_layout=0x7f07000f;
+        public static final int hourly_summary=0x7f070011;
+        public static final int loading_screen_text=0x7f070009;
         public static final int logo=0x7f070008;
         public static final int main_image=0x7f070002;
         public static final int main_text=0x7f070004;
         public static final int popup_button=0x7f070005;
         public static final int refresh=0x7f070006;
         public static final int temperature=0x7f070003;
-        public static final int un_popup=0x7f070009;
+        public static final int un_popup=0x7f07000a;
     }
     public static final class integer {
         /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/integers.xml 
@@ -92,10 +93,11 @@ public final class R {
         public static final int close=0x7f090002;
         public static final int daily_header=0x7f090003;
         public static final int hourly_header=0x7f090004;
-        public static final int look_ahead=0x7f090005;
-        public static final int main_text=0x7f090006;
-        public static final int service_name=0x7f090007;
-        public static final int temperature=0x7f090008;
+        public static final int loading_screen_text=0x7f090005;
+        public static final int look_ahead=0x7f090006;
+        public static final int main_text=0x7f090007;
+        public static final int service_name=0x7f090008;
+        public static final int temperature=0x7f090009;
     }
     public static final class style {
         /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/styles.xml 

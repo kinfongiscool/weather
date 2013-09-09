@@ -19,6 +19,8 @@ public class LocationService extends Service
 
     private static Location mLastLocation;
 
+    private int count = 0;
+
     private class LocationListener implements android.location.LocationListener{
 
         public LocationListener(String provider)
@@ -31,8 +33,12 @@ public class LocationService extends Service
         {
             Log.e(TAG, "onLocationChanged: " + location);
             mLastLocation.set(location);
-            MainActivity.setLocation(location);
-            
+            MainActivity.retrieveLocation(location);
+            MainActivity.timer1.cancel();
+            if(count >= 5) {
+                mLocationManager.removeUpdates(this);
+            }
+            count++;
         }
         @Override
         public void onProviderDisabled(String provider)
@@ -127,5 +133,9 @@ public class LocationService extends Service
 
     public Location getLocation() {
         return mLastLocation;
+    }
+
+    public void reset() {
+        count = 0;
     }
 }
