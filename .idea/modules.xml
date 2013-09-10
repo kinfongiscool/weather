@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../DeltaProgram/Playground/Playground.iml" filepath="$PROJECT_DIR$/../../DeltaProgram/Playground/Playground.iml" />
       <module fileurl="file://$PROJECT_DIR$/Weather/Weather.iml" filepath="$PROJECT_DIR$/Weather/Weather.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeatherProject.iml" filepath="$PROJECT_DIR$/WeatherProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Forecast/Forecast/src/main/main.iml" filepath="$PROJECT_DIR$/Forecast/Forecast/src/main/main.iml" />
     </modules>
   </component>
 </project>
