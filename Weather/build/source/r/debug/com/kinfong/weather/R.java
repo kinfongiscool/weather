@@ -20,8 +20,8 @@ public final class R {
     public static final class attr {
     }
     public static final class dimen {
-        /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/dimens.xml 
- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values-sw720dp-land/dimens.xml 
+        /**  From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values/dimens.xml 
+ From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values-sw720dp-land/dimens.xml 
          */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
@@ -48,7 +48,7 @@ public final class R {
         public static final int wind=0x7f020011;
     }
     public static final class id {
-        /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/ids.xml 
+        /**  From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values/ids.xml 
          */
         public static final int action_flip=0x7f070000;
         public static final int action_next=0x7f070001;
@@ -72,7 +72,7 @@ public final class R {
         public static final int un_popup=0x7f07000a;
     }
     public static final class integer {
-        /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/integers.xml 
+        /**  From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values/integers.xml 
          */
         public static final int card_flip_time_full=0x7f080000;
         public static final int card_flip_time_half=0x7f080001;
@@ -86,7 +86,7 @@ public final class R {
         public static final int main=0x7f0b0000;
     }
     public static final class string {
-        /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/strings.xml 
+        /**  From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values/strings.xml 
          */
         public static final int action_settings=0x7f090000;
         public static final int app_name=0x7f090001;
@@ -100,15 +100,15 @@ public final class R {
         public static final int temperature=0x7f090009;
     }
     public static final class style {
-        /**  From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values/styles.xml 
+        /**  From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values/styles.xml 
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values-v11/styles.xml 
+ From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/values-v14/styles.xml 
+ From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/values-v14/styles.xml 
  API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0a0000;

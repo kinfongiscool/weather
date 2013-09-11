@@ -15,6 +15,8 @@ public class WeatherData {
     private String hourlyIcon = "";
     private String dailySummary = "";
     private String dailyIcon = "";
+    private String highTemp = "";
+    private String lowTemp = "";
 
     public WeatherData() {
     }
@@ -24,7 +26,7 @@ public class WeatherData {
     }
 
     public String getCurrentlyTemperature() {
-        return currentlyTemperature;
+        return formatTemp(currentlyTemperature);
     }
 
     public void setCurrentlyTemperature(String currentlyTemperature) {
@@ -97,5 +99,25 @@ public class WeatherData {
 
     public void setDailyIcon(String dailyIcon) {
         this.dailyIcon = dailyIcon;
+    }
+
+    public String getHighTemp() {
+        return formatTemp(highTemp);
+    }
+
+    public void setHighTemp(String highTemp) {
+        this.highTemp = highTemp;
+    }
+
+    public String getLowTemp() {
+        return formatTemp(lowTemp);
+    }
+
+    public void setLowTemp(String lowTemp) {
+        this.lowTemp = lowTemp;
+    }
+
+    private String formatTemp(String input) {
+        return input.substring(0, input.indexOf('.')) + "\u00B0";
     }
 }

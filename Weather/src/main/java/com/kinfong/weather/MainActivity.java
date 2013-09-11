@@ -246,7 +246,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             dailyIcon = (ImageView) rootView.findViewById(R.id.daily_icon);
             dailySummary = (TextView) rootView.findViewById(R.id.daily_summary);
 
-            updateUi();
+            mainText.setText(mData.getMinutelySummary());
+            temperatureText.setText(mData.getCurrentlyTemperature());
+            mainImage.setImageDrawable(findIcon(mData.getMinutelyIcon()));
 
 
 
@@ -257,7 +259,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     LayoutInflater layoutInflater
                             = (LayoutInflater) rootView.getContext()
                             .getSystemService(LAYOUT_INFLATER_SERVICE);
-                    View popupView = layoutInflater.inflate(R.layout.popup, null);
+                    final View popupView = layoutInflater.inflate(R.layout.popup, null);
                     final PopupWindow popupWindow = new PopupWindow(
                             popupView,
                             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -349,19 +351,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             return d;
         }
 
-        /**
-         * Final step in updating UI.
-         */
-        private void updateUi() {
-            mainText.setText(mData.getMinutelySummary());
-            // get whole integer for temperature
-            String currentTemp = mData.getCurrentlyTemperature();
-            String roundedDouble = "";
-            roundedDouble = currentTemp.substring(0, currentTemp.indexOf('.'));
-            temperatureText.setText(roundedDouble + "\u00B0");
-            mainImage.setImageDrawable(findIcon(mData.getMinutelyIcon()));
-        }
     }
+
 
 //    /**
 //     * Get the location once.

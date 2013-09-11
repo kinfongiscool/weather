@@ -50,4 +50,4 @@
         android:startOffset="@integer/card_flip_time_half"
         android:duration="1" />
 </set>
-<!-- From: file:/C:/Development/Repositories/WeatherProject/Weather/src/main/res/animator/card_flip_left_out.xml -->
+<!-- From: file:/C:/Development/Repositories/NewWeatherProject/weather/Weather/src/main/res/animator/card_flip_left_out.xml -->
