@@ -12,6 +12,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--<service android:name=".LocationService" android:process=":my_service" />-->
+        <service android:icon="@drawable/logo" android:label="@string/service_name" android:name="com.kinfong.weather.LocationService">
+        </service>
+
+        <receiver android:name="com.kinfong.weather.MyScheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kinfong.weather.MyStartServiceReceiver">
+        </receiver>
     </application>
 
 </manifest>

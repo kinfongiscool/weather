@@ -12,17 +12,11 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
-//import android.support.v4.app.Fragment;
 import android.os.IBinder;
-import android.os.Looper;
-import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -31,18 +25,15 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Class to do really cool stuff with the weather.
  * @author Kin
  */
 public class MainActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
-
-    public static final String TAG = "MainActivity";
 
     public static final String API_KEY = "0692d0f09a1e18c05539495deed088d6";
 
@@ -157,51 +148,63 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Still looking for location...");
+                    loadingScreenText.setText("looking for location...");
                 }
             }, 10000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Having trouble finding your location.");
+                    loadingScreenText.setText("");
                 }
-            }, 16000);
+            }, 15000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Hmm, we might have a problem.\nIs your GPS on?");
+                    loadingScreenText.setText("Still looking for location...");
                 }
             }, 20000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    loadingScreenText.setText("Having trouble finding your location.");
+                }
+            }, 26000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadingScreenText.setText("Hmm, we might have a problem.\nIs your GPS on?");
+                }
+            }, 30000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
                     loadingScreenText.setText("Try walking closer to a window.");
                 }
-            }, 25000);
+            }, 35000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("Sorry, this is embarrassing.");
                 }
-            }, 28000);
+            }, 38000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("Make sure your GPS is on!");
                 }
-            }, 33000);
+            }, 43000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("I'm still trying, hold on.");
                 }
-            }, 37000);
+            }, 47000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("Well, something bad must have happened.\nYou should reset the app.");
                 }
-            }, 33000);
+            }, 43000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -229,6 +232,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         TextView hourlySummary;
         ImageView dailyIcon;
         TextView dailySummary;
+        TextView highTemp;
+        TextView lowTemp;
 
         public MainFragment() {
         }
@@ -265,23 +270,25 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
 
-
                     hourlyIcon = (ImageView) popupView.findViewById(R.id.hourly_icon);
                     hourlySummary = (TextView) popupView.findViewById(R.id.hourly_summary);
                     dailyIcon = (ImageView) popupView.findViewById(R.id.daily_icon);
                     dailySummary = (TextView) popupView.findViewById(R.id.daily_summary);
+                    highTemp = (TextView) popupView.findViewById(R.id.high_temp);
+                    lowTemp = (TextView) popupView.findViewById(R.id.low_temp);
 
                     hourlyIcon.setImageDrawable(findIcon(mData.getHourlyIcon()));
                     hourlySummary.setText(mData.getHourlySummary());
                     dailyIcon.setImageDrawable(findIcon(mData.getDailyIcon()));
                     dailySummary.setText(mData.getDailySummary());
+                    highTemp.setText("H: " + mData.getHighTemp());
+                    lowTemp.setText("L: " + mData.getLowTemp());
 
                     ImageButton unPopup = (ImageButton)popupView.findViewById(R.id.un_popup);
                     unPopup.setOnClickListener(new Button.OnClickListener(){
 
                         @Override
                         public void onClick(View v) {
-                            // TODO Auto-generated method stub
                             popupWindow.dismiss();
                         }});
 
@@ -311,7 +318,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
         /**
          * Returns appropriate icon depending on weather conditions.
-         * @param input
+         * @param input string describing weather conditions
          * @return Drawable icon that matches weather conditions.
          */
         public Drawable findIcon(String input) {
@@ -446,7 +453,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (readyToFlip == true) {
+                if (readyToFlip) {
                     flipCard();
                     h.removeCallbacks(this);
                 } else {
@@ -480,9 +487,12 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             JSONObject dailyObject = jRoot.getJSONObject("daily");
             mData.setDailySummary(dailyObject.getString("summary"));
             mData.setDailyIcon(dailyObject.getString("icon"));
+            JSONArray dailyDataArray = dailyObject.getJSONArray("data");
+            JSONObject dailyDataObject = dailyDataArray.getJSONObject(0);
+            mData.setHighTemp(dailyDataObject.getString("temperatureMax"));
+            mData.setLowTemp(dailyDataObject.getString("temperatureMin"));
         }catch (Exception e) {
-        }finally {
-
+            e.printStackTrace();
         }
     }
 }

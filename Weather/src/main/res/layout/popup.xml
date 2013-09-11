@@ -97,6 +97,25 @@
                     android:layout_alignTop="@+id/hourly_icon"
                     android:layout_toRightOf="@+id/hourly_icon"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/hourly_summary"
+                android:layout_below="@id/hourly_summary"
+                android:id="@+id/high_temp"
+                android:textColor="#fec346"
+                android:text="990"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/high_temp"
+                android:layout_toRightOf="@id/high_temp"
+                android:id="@+id/low_temp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#38c2d3"
+                android:text="000"/>
+
         </RelativeLayout>
     </RelativeLayout>
 
