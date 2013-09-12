@@ -148,7 +148,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("looking for location...");
+                    loadingScreenText.setText("Looking for location...");
                 }
             }, 10000);
             loadingScreenText.postDelayed(new Runnable() {
@@ -166,58 +166,62 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Having trouble finding your location.");
+                    loadingScreenText.setText("");
                 }
             }, 26000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Hmm, we might have a problem.\nIs your GPS on?");
+                    loadingScreenText.setText("Having trouble finding your location.");
                 }
             }, 30000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Try walking closer to a window.");
+                    loadingScreenText.setText("We might have a problem.\nIs your GPS on?");
                 }
             }, 35000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Sorry, this is embarrassing.");
+                    loadingScreenText.setText("Try walking closer to a window.");
                 }
             }, 38000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Make sure your GPS is on!");
+                    loadingScreenText.setText("Sorry, this is embarrassing.");
                 }
             }, 43000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("I'm still trying, hold on.");
+                    loadingScreenText.setText("Make sure your GPS is on!");
                 }
             }, 47000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    loadingScreenText.setText("Trying one last time.");
+                }
+            }, 53000);
+            loadingScreenText.postDelayed(new Runnable() {
+                @Override
+                public void run() {
                     loadingScreenText.setText("Well, something bad must have happened.\nYou should reset the app.");
                 }
-            }, 43000);
+            }, 60000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("Still here? You should reset the app.");
                 }
-            }, 60000);
+            }, 70000);
 
             return rootView;
         }
     }
 
-    private void reset() {
-    }
 
 
     /**
@@ -306,7 +310,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 //                    retrieveLocation();
                     readyToFlip = false;
                     flipCard();
-                    retrieveLocation(mBoundService.getLocation());
+                    mBoundService.doRetrieveLocation();
 //                    mBoundService.reset();
 //                    doUnbindService();
 //                    doBindService();
@@ -322,15 +326,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
          * @return Drawable icon that matches weather conditions.
          */
         public Drawable findIcon(String input) {
-//            Drawable d;
-//            switch(input){
-//                case "clear-day":
-//                    d = getResources().getDrawable(R.drawable.clear_day);
-//                    break;
-//                default:
-//                    d = getResources().getDrawable(R.drawable.weather_default);
-//                    break;
-//            }
             Drawable d;
             if(input.equals("clear-day")) {
                 d = getResources().getDrawable(R.drawable.clear_day);
@@ -391,6 +386,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder binder) {
             mBoundService = ( (LocationService.LocationBinder) binder).getService();
+
+            mBoundService.doRetrieveLocation();
+
             Toast.makeText(MainActivity.this, "Connected", Toast.LENGTH_SHORT)
                     .show();
         }
@@ -441,7 +439,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     public static void retrieveForecastData(JSONObject data) {
         extractData(data);
-        readyToFlip = true;
+//        if(Double.valueOf(mData.getLatitude()) != 0 && Double.valueOf(mData.getLongitude()) != 0) {
+            readyToFlip = true;
+//        }
     }
 
     /**
@@ -473,6 +473,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     public static void extractData(JSONObject jRoot) {
         mData = new WeatherData();
         try{
+            mData.setLatitude(jRoot.getString("latitude"));
+            mData.setLongitude(jRoot.getString("longitude"));
             JSONObject currentlyObject = jRoot.getJSONObject("currently");
             mData.setCurrentlyTime(currentlyObject.getString("time"));
             mData.setCurrentlySummary(currentlyObject.getString("summary"));

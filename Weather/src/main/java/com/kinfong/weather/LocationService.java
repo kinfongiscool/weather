@@ -1,25 +1,26 @@
 package com.kinfong.weather;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
-public class LocationService extends Service
-{
+public class LocationService extends Service {
     private static final String TAG = "BOOMBOOMTESTGPS";
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 10f;
 
     private static Location mLastLocation;
-
-    private int count = 0;
 
     private class LocationListener implements android.location.LocationListener{
 
@@ -33,15 +34,14 @@ public class LocationService extends Service
         {
             Log.e(TAG, "onLocationChanged: " + location);
             mLastLocation.set(location);
-            MainActivity.retrieveLocation(location);
-            if(count >= 5) {
-                mLocationManager.removeUpdates(this);
-            }
-            count++;
+//            MainActivity.retrieveLocation(location);
+//            Toast.makeText(getBaseContext(), mLastLocation.toString(), Toast.LENGTH_SHORT)
+//                    .show();
         }
         @Override
         public void onProviderDisabled(String provider)
         {
+            showGPSAlert(getApplicationContext());
             Log.e(TAG, "onProviderDisabled: " + provider);
         }
         @Override
@@ -55,10 +55,39 @@ public class LocationService extends Service
             Log.e(TAG, "onStatusChanged: " + provider);
         }
     }
+
+    // Show Alert Dialog to enable GPS
+    protected void showGPSAlert(final Context context) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(
+                        "GPS is disabled on your device. Would you like to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Open Settings",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // set intent to open settings
+                                Intent callGPSSettingIntent = new Intent(
+                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                context.startActivity(callGPSSettingIntent);
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+
     LocationListener[] mLocationListeners = new LocationListener[] {
             new LocationListener(LocationManager.GPS_PROVIDER),
             new LocationListener(LocationManager.NETWORK_PROVIDER)
     };
+
     @Override
     public IBinder onBind(Intent arg0)
     {
@@ -77,6 +106,7 @@ public class LocationService extends Service
             return LocationService.this;
         }
     }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
@@ -84,6 +114,7 @@ public class LocationService extends Service
         super.onStartCommand(intent, flags, startId);
         return Service.START_STICKY;
     }
+
     @Override
     public void onCreate()
     {
@@ -107,7 +138,34 @@ public class LocationService extends Service
         } catch (IllegalArgumentException ex) {
             Log.d(TAG, "gps provider does not exist " + ex.getMessage());
         }
+
+        mLastLocation = getLocation();
+
+        new Thread(new Runnable(){
+            public void run() {
+                // TODO Auto-generated method stub
+                while(true)
+                {
+                    try {
+                        mLastLocation = getLocation();
+//                        MainActivity.retrieveLocation(mLastLocation);
+                        Thread.sleep(60000);
+
+                        Log.e(TAG, "Thread says:" + mLastLocation.toString());
+//                        Toast.makeText(getBaseContext(), "10 seconds has passed.", Toast.LENGTH_SHORT)
+//                                .show();
+
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        }).start();
     }
+
     @Override
     public void onDestroy()
     {
@@ -123,6 +181,7 @@ public class LocationService extends Service
             }
         }
     }
+
     private void initializeLocationManager() {
         Log.e(TAG, "initializeLocationManager");
         if (mLocationManager == null) {
@@ -134,7 +193,24 @@ public class LocationService extends Service
         return mLastLocation;
     }
 
-    public void reset() {
-        count = 0;
+    public void doRetrieveLocation(long interval) {
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mLastLocation != null && mLastLocation.getLatitude() != 0 && mLastLocation.getLongitude() != 0) {
+                    Log.e(TAG, "Retrieving Location");
+                    MainActivity.retrieveLocation(mLastLocation);
+                    h.removeCallbacks(this);
+                } else {
+                    doRetrieveLocation();
+                }
+            }
+        }, interval);
     }
+    public void doRetrieveLocation() {
+        doRetrieveLocation(0);
+    }
+
+
 }
