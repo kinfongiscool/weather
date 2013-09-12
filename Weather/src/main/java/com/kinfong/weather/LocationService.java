@@ -28,6 +28,8 @@ public class LocationService extends Service {
         {
             Log.e(TAG, "LocationListener " + provider);
             mLastLocation = new Location(provider);
+//            showGPSAlert(MyApplication.getAppContext());
+
         }
         @Override
         public void onLocationChanged(Location location)
@@ -41,7 +43,6 @@ public class LocationService extends Service {
         @Override
         public void onProviderDisabled(String provider)
         {
-            showGPSAlert(getApplicationContext());
             Log.e(TAG, "onProviderDisabled: " + provider);
         }
         @Override
@@ -54,33 +55,6 @@ public class LocationService extends Service {
         {
             Log.e(TAG, "onStatusChanged: " + provider);
         }
-    }
-
-    // Show Alert Dialog to enable GPS
-    protected void showGPSAlert(final Context context) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
-        alertDialogBuilder
-                .setMessage(
-                        "GPS is disabled on your device. Would you like to enable it?")
-                .setCancelable(false)
-                .setPositiveButton("Open Settings",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // set intent to open settings
-                                Intent callGPSSettingIntent = new Intent(
-                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                                context.startActivity(callGPSSettingIntent);
-                            }
-                        });
-        alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
     }
 
     LocationListener[] mLocationListeners = new LocationListener[] {
@@ -110,6 +84,7 @@ public class LocationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
+
         Log.e(TAG, "onStartCommand");
         super.onStartCommand(intent, flags, startId);
         return Service.START_STICKY;
@@ -136,18 +111,16 @@ public class LocationService extends Service {
         } catch (java.lang.SecurityException ex) {
             Log.i(TAG, "fail to request location update, ignore", ex);
         } catch (IllegalArgumentException ex) {
+
             Log.d(TAG, "gps provider does not exist " + ex.getMessage());
         }
 
-        mLastLocation = getLocation();
-
         new Thread(new Runnable(){
             public void run() {
-                // TODO Auto-generated method stub
                 while(true)
                 {
                     try {
-                        mLastLocation = getLocation();
+                        // need to get this to update location every time it goes through this loop
 //                        MainActivity.retrieveLocation(mLastLocation);
                         Thread.sleep(60000);
 
@@ -156,7 +129,6 @@ public class LocationService extends Service {
 //                                .show();
 
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
@@ -187,12 +159,47 @@ public class LocationService extends Service {
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         }
+        // TODO: figure out how to check if GPS enabled or not
+        boolean enabled = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if(!enabled) {
+            Log.e(TAG, "GPS not enabled");
+            showGPSAlert(getApplicationContext());
+        }
     }
 
-    public Location getLocation() {
-        return mLastLocation;
+    /**
+     * Show alert dialog to allow user to enable GPS
+     */
+    protected void showGPSAlert(final Context context) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(
+                        "GPS is disabled on your device. Would you like to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Open Settings",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // set intent to open settings
+                                Intent callGPSSettingIntent = new Intent(
+                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                context.startActivity(callGPSSettingIntent);
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
+    /**
+     * Handler to check for a good location before retrieving location.
+     * @param interval interval to check for updates
+     */
     public void doRetrieveLocation(long interval) {
         final Handler h = new Handler();
         h.postDelayed(new Runnable() {

@@ -18,8 +18,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -91,7 +91,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" line="389" class="com.kinfong.weather.MainActivity$15" package="com.kinfong.weather">
+      <breakpoint url="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" line="389" class="com.kinfong.weather.MainActivity$16" package="com.kinfong.weather">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -119,10 +119,19 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="22" selection-start="5502" selection-end="5502" vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="6810">
+            <state line="138" column="19" selection-start="4323" selection-end="4328" vertical-scroll-proportion="42.2" vertical-offset="3050" max-vertical-offset="6810">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="78" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,25 +169,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeatherData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="33" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2205">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LocationService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="21" selection-start="3105" selection-end="3105" vertical-scroll-proportion="0.73626375" vertical-offset="670" max-vertical-offset="3105">
+            <state line="169" column="7" selection-start="5665" selection-end="5665" vertical-scroll-proportion="0.7407407" vertical-offset="2015" max-vertical-offset="3210">
               <folding>
-                <element signature="e#2364#2855#0" expanded="true" />
-                <element signature="e#2828#2829#0" expanded="true" />
-                <element signature="e#2929#3123#0" expanded="true" />
-                <element signature="e#5207#6003#0" expanded="true" />
-                <element signature="e#5992#5993#0" expanded="true" />
+                <element signature="e#3876#4607#0" expanded="true" />
+                <element signature="e#4596#4597#0" expanded="true" />
+                <element signature="e#6142#6633#0" expanded="true" />
+                <element signature="e#6606#6607#0" expanded="true" />
+                <element signature="e#6707#6901#0" expanded="true" />
+                <element signature="e#6882#6883#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,7 +188,7 @@
       <file leaf-file-name="MyScheduleReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="18" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="600">
+            <state line="12" column="12" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -196,7 +197,7 @@
       <file leaf-file-name="MyStartServiceReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+            <state line="8" column="32" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -245,7 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Weather/src/main/res/layout/activity_zoom.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyApplication.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/values/integers.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/layout/activity_main.xml" />
@@ -253,7 +253,6 @@
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartReciever.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReciever.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/layout/loading_screen.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" />
@@ -261,6 +260,8 @@
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
+        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java" />
+        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java" />
       </list>
     </option>
   </component>
@@ -402,7 +403,7 @@
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyService" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -621,10 +622,14 @@
       <created>1378934521434</created>
       <updated>1378934521434</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="location service works where it doesn't call retrievelocation over and over again. working on getting GPS on checker to work (have GPS dialog set up) TODO: store location at boot to speed up first run.">
+      <created>1379008383209</created>
+      <updated>1379008383209</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -646,7 +651,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5808147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -660,14 +665,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24096386" sideWeight="0.42555994" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2720105" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36793694" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36793694" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298292" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24967825" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1988417" sideWeight="0.6320631" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1988417" sideWeight="0.67017084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3219448" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -719,39 +724,13 @@
     <MESSAGE value="bug fixing. have a lot of &quot;not working&quot; messages that display properly. Not sure if done properly, though." />
     <MESSAGE value="moved temperature formatting to weatherdata. TODO: add high/low temp to popup" />
     <MESSAGE value="added high/low temps to popup" />
-    <option name="LAST_COMMIT_MESSAGE" value="added high/low temps to popup" />
+    <MESSAGE value="location service works where it doesn't call retrievelocation over and over again. working on getting GPS on checker to work (have GPS dialog set up) TODO: store location at boot to speed up first run." />
+    <option name="LAST_COMMIT_MESSAGE" value="location service works where it doesn't call retrievelocation over and over again. working on getting GPS on checker to work (have GPS dialog set up) TODO: store location at boot to speed up first run." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="36" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1935">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="2190">
-          <folding>
-            <element signature="e#2364#2855#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-            <element signature="e#2929#3123#0" expanded="true" />
-            <element signature="e#5207#6003#0" expanded="true" />
-            <element signature="e#5992#5993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="18" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="690">
@@ -794,20 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="18" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/res/layout/popup.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="115" column="36" selection-start="5288" selection-end="5288" vertical-scroll-proportion="-28.4" vertical-offset="1015" max-vertical-offset="1905">
@@ -835,24 +800,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2347" column="9" selection-start="98175" selection-end="98182" vertical-scroll-proportion="0.0" vertical-offset="32270" max-vertical-offset="74925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/android/content/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1856" column="7" selection-start="84600" selection-end="84600" vertical-scroll-proportion="0.5626374" vertical-offset="26939" max-vertical-offset="40920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="22" selection-start="5502" selection-end="5502" vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="6810">
+        <state line="138" column="19" selection-start="4323" selection-end="4328" vertical-scroll-proportion="42.2" vertical-offset="3050" max-vertical-offset="6810">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="78" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="12" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="32" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="21" selection-start="3105" selection-end="3105" vertical-scroll-proportion="0.73626375" vertical-offset="670" max-vertical-offset="3105">
+        <state line="169" column="7" selection-start="5665" selection-end="5665" vertical-scroll-proportion="0.7407407" vertical-offset="2015" max-vertical-offset="3210">
           <folding>
-            <element signature="e#2364#2855#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-            <element signature="e#2929#3123#0" expanded="true" />
-            <element signature="e#5207#6003#0" expanded="true" />
-            <element signature="e#5992#5993#0" expanded="true" />
+            <element signature="e#3876#4607#0" expanded="true" />
+            <element signature="e#4596#4597#0" expanded="true" />
+            <element signature="e#6142#6633#0" expanded="true" />
+            <element signature="e#6606#6607#0" expanded="true" />
+            <element signature="e#6707#6901#0" expanded="true" />
+            <element signature="e#6882#6883#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -9,6 +9,9 @@ import android.content.Intent;
 import java.util.Calendar;
 
 /**
+ * Sets up a receiver that starts x seconds after boot to restart the location service at a certain
+ * interval.
+ *
  * Created by Kin on 9/8/13.
  */
 public class MyScheduleReceiver extends BroadcastReceiver{
