@@ -2,18 +2,12 @@ package com.kinfong.weather;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
 import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+
 
 /**
  * Created by Vic on 13/8/26.
@@ -43,18 +37,6 @@ public class FetchForecastData {
      */
     private String buildForecastUrl(Double latitude, Double longitude) {
         return API_URL + API_KEY + "/" + latitude.toString() + "," + longitude.toString();
-    }
-
-    public HttpResponse getResponse() {
-        return response;
-    }
-
-    public JSONObject getData() {
-        return data;
-    }
-
-    public int getStatus() {
-        return status;
     }
 
     /**
@@ -90,6 +72,7 @@ public class FetchForecastData {
         protected void onPostExecute(HttpResponse res){
             status = res.getStatusLine().getStatusCode();
             response = res;
+
             MainActivity.retrieveForecastData(data);
         }
     }

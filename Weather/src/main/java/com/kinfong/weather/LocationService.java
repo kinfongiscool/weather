@@ -207,7 +207,9 @@ public class LocationService extends Service {
             public void run() {
                 if (mLastLocation != null && mLastLocation.getLatitude() != 0 && mLastLocation.getLongitude() != 0) {
                     Log.e(TAG, "Retrieving Location");
-                    MainActivity.retrieveLocation(mLastLocation);
+                    Intent intent = new Intent("retrieveLocation");
+                    intent.putExtra("location", mLastLocation);
+                    sendBroadcast(intent);
                     h.removeCallbacks(this);
                 } else {
                     doRetrieveLocation();

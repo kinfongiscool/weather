@@ -4,9 +4,11 @@ package com.kinfong.weather;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
@@ -53,12 +55,19 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     private static boolean readyToFlip = false;
 
+    private BroadcastReceiver mRetrieveLocationReceiver;
+    private BroadcastReceiver mFetchForecastDataReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_screen);
 
         doBindService();
+
+        mFetchForecastDataReceiver = new FetchForecastDataBroadcastReceiver();
+
+        mRetrieveLocationReceiver = new RetrieveLocationReceiver();
 
         if (savedInstanceState == null) {
 
@@ -73,17 +82,32 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         getFragmentManager().addOnBackStackChangedListener(this);
     }
 
+    public class RetrieveLocationReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle b = intent.getExtras();
+            Location location = (Location) b.get("location");
+            retrieveLocation(location);
+        }
+    }
+
+    public class FetchForecastDataBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
+    }
+
     private void flipCard() {
         if (mShowingBack) {
             getFragmentManager().popBackStack();
             return;
         }
 
-        // Flip to the back.
         mShowingBack = true;
 
-        // Create and commit a new fragment transaction that adds the fragment for the back of
-        // the card, uses custom animations, and is part of the fragment manager's back stack.
         getFragmentManager()
                 .beginTransaction()
 
@@ -106,7 +130,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     public void onBackStackChanged() {
         mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
 
-        // When the back stack changes, invalidate the options menu (action bar).
         invalidateOptionsMenu();
     }
 
@@ -136,11 +159,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             r.setRepeatCount(-1);
             logo.startAnimation(r);
 
-            //Start loading activities
-//            getLocationOnce();
-//            getLocationFromService();
-//            retrieveLocation();
-
+            // start handler operation
             checkIfReadyToFlip();
 
             final TextView loadingScreenText = (TextView) rootView.findViewById(R.id.loading_screen_text);
@@ -305,15 +324,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             refreshButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    getLocationOnce();
-//                    getLocationFromService();
-//                    retrieveLocation();
                     readyToFlip = false;
                     flipCard();
                     mBoundService.doRetrieveLocation();
-//                    mBoundService.reset();
-//                    doUnbindService();
-//                    doBindService();
                 }
             });
 
@@ -355,32 +368,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     }
 
-
-//    /**
-//     * Get the location once.
-//     */
-//    public static void getLocationOnce() {
-//        MyLocation.LocationResult locationResult = new MyLocation.LocationResult() {
-//            @Override
-//            public void gotLocation(Location location){
-//                setLocation(location);
-//            }
-//        };
-//        myLocation = new MyLocation();
-//        myLocation.getLocation(context, locationResult);
-//    }
-
-//    /**
-//     * Sets member variables to appropriate values after location is found.
-//     * @param location Location holding desired data
-//     */
-//    public static void setLocation(Location location) {
-//        MainActivity.location = location;
-//        latitude = location.getLatitude();
-//        longitude = location.getLongitude();
-//    }
-
-
     private static LocationService mBoundService;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -402,26 +389,25 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         super.onResume();
         bindService(new Intent(this, LocationService.class), mConnection,
                 Context.BIND_AUTO_CREATE);
+        registerReceiver(mRetrieveLocationReceiver, new IntentFilter("retrieveLocation"));
+        registerReceiver(mFetchForecastDataReceiver, new IntentFilter("retrieveForecastData"));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         unbindService(mConnection);
+        unregisterReceiver(mRetrieveLocationReceiver);
+        unregisterReceiver(mFetchForecastDataReceiver);
     }
 
     void doBindService() {
-        // Establish a connection with the service.  We use an explicit
-        // class name because we want a specific service implementation that
-        // we know will be running in our own process (and thus won't be
-        // supporting component replacement by other applications).
         bindService(new Intent(this, LocationService.class), mConnection, Context.BIND_AUTO_CREATE);
         mIsBound = true;
     }
 
     void doUnbindService() {
         if (mIsBound) {
-            // Detach our existing connection.
             unbindService(mConnection);
             mIsBound = false;
         }
@@ -439,9 +425,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     public static void retrieveForecastData(JSONObject data) {
         extractData(data);
-//        if(Double.valueOf(mData.getLatitude()) != 0 && Double.valueOf(mData.getLongitude()) != 0) {
-            readyToFlip = true;
-//        }
+        readyToFlip = true;
     }
 
     /**
