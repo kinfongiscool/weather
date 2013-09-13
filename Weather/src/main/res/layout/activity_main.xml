@@ -40,17 +40,6 @@
             android:textIsSelectable="false"
             tools:ignore="SpUsage"/>
 
-    <!--<Button-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:id="@+id/look_ahead"-->
-    <!--android:text="@string/look_ahead"-->
-    <!--android:textColor="#8f8f8f"-->
-    <!--android:textSize="16dp"-->
-    <!--android:textStyle="italic"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:layout_alignRight="@+id/main_text"/>-->
-
     <ImageButton
             android:layout_width="@android:dimen/app_icon_size"
             android:layout_height="@android:dimen/app_icon_size"

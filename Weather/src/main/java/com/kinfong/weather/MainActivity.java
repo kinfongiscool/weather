@@ -1,12 +1,13 @@
 package com.kinfong.weather;
 
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -25,7 +26,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -56,7 +56,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private static boolean readyToFlip = false;
 
     private BroadcastReceiver mRetrieveLocationReceiver;
-    private BroadcastReceiver mFetchForecastDataReceiver;
+    private BroadcastReceiver mGpsDialogReceiver;
+
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
         doBindService();
 
-        mFetchForecastDataReceiver = new FetchForecastDataBroadcastReceiver();
+        context = this;
+
+        mGpsDialogReceiver = new GpsDialogReceiver();
 
         mRetrieveLocationReceiver = new RetrieveLocationReceiver();
 
@@ -92,12 +96,41 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }
     }
 
-    public class FetchForecastDataBroadcastReceiver extends BroadcastReceiver {
+    public class GpsDialogReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-
+            showGPSAlert(context);
         }
+    }
+
+    /**
+     * Show alert dialog to allow user to enable GPS
+     */
+    protected void showGPSAlert(final Context context) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(
+                        "GPS is disabled on your device. Would you like to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Open Settings",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // set intent to open settings
+                                Intent callGPSSettingIntent = new Intent(
+                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                context.startActivity(callGPSSettingIntent);
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
     private void flipCard() {
@@ -375,9 +408,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             mBoundService = ( (LocationService.LocationBinder) binder).getService();
 
             mBoundService.doRetrieveLocation();
-
-            Toast.makeText(MainActivity.this, "Connected", Toast.LENGTH_SHORT)
-                    .show();
         }
         public void onServiceDisconnected(ComponentName className) {
             mBoundService = null;
@@ -390,7 +420,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         bindService(new Intent(this, LocationService.class), mConnection,
                 Context.BIND_AUTO_CREATE);
         registerReceiver(mRetrieveLocationReceiver, new IntentFilter("retrieveLocation"));
-        registerReceiver(mFetchForecastDataReceiver, new IntentFilter("retrieveForecastData"));
+        registerReceiver(mGpsDialogReceiver, new IntentFilter("showGpsDialog"));
     }
 
     @Override
@@ -398,7 +428,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         super.onPause();
         unbindService(mConnection);
         unregisterReceiver(mRetrieveLocationReceiver);
-        unregisterReceiver(mFetchForecastDataReceiver);
+        unregisterReceiver(mGpsDialogReceiver);
     }
 
     void doBindService() {
@@ -481,4 +511,5 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             e.printStackTrace();
         }
     }
+
 }

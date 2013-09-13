@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
 
 public class LocationService extends Service {
     private static final String TAG = "BOOMBOOMTESTGPS";
@@ -20,25 +19,20 @@ public class LocationService extends Service {
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 10f;
 
-    private static Location mLastLocation;
+    private static Location mLocation;
 
     private class LocationListener implements android.location.LocationListener{
 
         public LocationListener(String provider)
         {
             Log.e(TAG, "LocationListener " + provider);
-            mLastLocation = new Location(provider);
-//            showGPSAlert(MyApplication.getAppContext());
-
+            mLocation = new Location(provider);
         }
         @Override
         public void onLocationChanged(Location location)
         {
             Log.e(TAG, "onLocationChanged: " + location);
-            mLastLocation.set(location);
-//            MainActivity.retrieveLocation(location);
-//            Toast.makeText(getBaseContext(), mLastLocation.toString(), Toast.LENGTH_SHORT)
-//                    .show();
+            mLocation.set(location);
         }
         @Override
         public void onProviderDisabled(String provider)
@@ -95,47 +89,32 @@ public class LocationService extends Service {
     {
         Log.e(TAG, "onCreate");
         initializeLocationManager();
-        try {
-            mLocationManager.requestLocationUpdates(
-                    LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                    mLocationListeners[1]);
-        } catch (java.lang.SecurityException ex) {
-            Log.i(TAG, "fail to request location update, ignore", ex);
-        } catch (IllegalArgumentException ex) {
-            Log.d(TAG, "network provider does not exist, " + ex.getMessage());
-        }
-        try {
-            mLocationManager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                    mLocationListeners[0]);
-        } catch (java.lang.SecurityException ex) {
-            Log.i(TAG, "fail to request location update, ignore", ex);
-        } catch (IllegalArgumentException ex) {
-
-            Log.d(TAG, "gps provider does not exist " + ex.getMessage());
-        }
-
-        new Thread(new Runnable(){
-            public void run() {
-                while(true)
-                {
-                    try {
-                        // need to get this to update location every time it goes through this loop
-//                        MainActivity.retrieveLocation(mLastLocation);
-                        Thread.sleep(60000);
-
-                        Log.e(TAG, "Thread says:" + mLastLocation.toString());
-//                        Toast.makeText(getBaseContext(), "10 seconds has passed.", Toast.LENGTH_SHORT)
-//                                .show();
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-
+        if(checkGPSEnabled()) {
+            try {
+                mLocationManager.requestLocationUpdates(
+                        LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
+                        mLocationListeners[1]);
+            } catch (java.lang.SecurityException ex) {
+                Log.i(TAG, "fail to request location update, ignore", ex);
+            } catch (IllegalArgumentException ex) {
+                Log.d(TAG, "network provider does not exist, " + ex.getMessage());
             }
-        }).start();
+            try {
+                mLocationManager.requestLocationUpdates(
+                        LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
+                        mLocationListeners[0]);
+            } catch (java.lang.SecurityException ex) {
+                Log.i(TAG, "fail to request location update, ignore", ex);
+            } catch (IllegalArgumentException ex) {
+
+                Log.d(TAG, "gps provider does not exist " + ex.getMessage());
+            }
+
+        } else {
+            Log.e(TAG, "GPS not enabled");
+            Intent intent = new Intent("showGpsDialog");
+            sendBroadcast(intent);
+        }
     }
 
     @Override
@@ -159,42 +138,41 @@ public class LocationService extends Service {
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         }
-        // TODO: figure out how to check if GPS enabled or not
-        boolean enabled = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if(!enabled) {
-            Log.e(TAG, "GPS not enabled");
-            showGPSAlert(getApplicationContext());
-        }
     }
 
-    /**
-     * Show alert dialog to allow user to enable GPS
-     */
-    protected void showGPSAlert(final Context context) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
-        alertDialogBuilder
-                .setMessage(
-                        "GPS is disabled on your device. Would you like to enable it?")
-                .setCancelable(false)
-                .setPositiveButton("Open Settings",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // set intent to open settings
-                                Intent callGPSSettingIntent = new Intent(
-                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                                context.startActivity(callGPSSettingIntent);
-                            }
-                        });
-        alertDialogBuilder.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
+    private boolean checkGPSEnabled() {
+        return mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
+
+//    /**
+//     * Show alert dialog to allow user to enable GPS
+//     */
+//    protected void showGPSAlert(final Context context) {
+//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+//                context);
+//        alertDialogBuilder
+//                .setMessage(
+//                        "GPS is disabled on your device. Would you like to enable it?")
+//                .setCancelable(false)
+//                .setPositiveButton("Open Settings",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//                                // set intent to open settings
+//                                Intent callGPSSettingIntent = new Intent(
+//                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                                context.startActivity(callGPSSettingIntent);
+//                            }
+//                        })
+//                .setNegativeButton("Cancel",
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        dialog.cancel();
+//                    }
+//                });
+//        AlertDialog alert = alertDialogBuilder.create();
+//        //TODO: fix this copypasted junk.
+//        alert.show();
+//    }
 
     /**
      * Handler to check for a good location before retrieving location.
@@ -205,10 +183,13 @@ public class LocationService extends Service {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (mLastLocation != null && mLastLocation.getLatitude() != 0 && mLastLocation.getLongitude() != 0) {
+//                if (mLocationM != null && mLocation.getLatitude() != 0 && mLocation.getLongitude() != 0) {
+                if(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER) != null
+                        && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude() != 0
+                        && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude() != 0) {
                     Log.e(TAG, "Retrieving Location");
                     Intent intent = new Intent("retrieveLocation");
-                    intent.putExtra("location", mLastLocation);
+                    intent.putExtra("location", mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
                     sendBroadcast(intent);
                     h.removeCallbacks(this);
                 } else {
