@@ -11,5 +11,5 @@
     <string name="daily_header">This week:</string>
     <string name="service_name">EasyWeather Service</string>
     <string name="loading_screen_text"></string>
-
+    <string name="forecast_io">Powered by Forecast.io</string>
 </resources>

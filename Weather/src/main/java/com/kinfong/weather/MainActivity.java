@@ -13,6 +13,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -240,6 +241,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         TextView dailySummary;
         TextView highTemp;
         TextView lowTemp;
+        TextView forecastIo;
 
         public MainFragment() {
         }
@@ -261,8 +263,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             temperatureText.setText(mData.getCurrentlyTemperature());
             mainImage.setImageDrawable(findIcon(mData.getMinutelyIcon()));
 
-
-
             final ImageView popupButton = (ImageView) rootView.findViewById(R.id.popup_button);
             popupButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -282,6 +282,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     dailySummary = (TextView) popupView.findViewById(R.id.daily_summary);
                     highTemp = (TextView) popupView.findViewById(R.id.high_temp);
                     lowTemp = (TextView) popupView.findViewById(R.id.low_temp);
+                    forecastIo = (TextView) popupView.findViewById(R.id.forecast_io);
 
                     hourlyIcon.setImageDrawable(findIcon(mData.getHourlyIcon()));
                     hourlySummary.setText(mData.getHourlySummary());
@@ -289,6 +290,13 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     dailySummary.setText(mData.getDailySummary());
                     highTemp.setText("H: " + mData.getHighTemp());
                     lowTemp.setText("L: " + mData.getLowTemp());
+                    forecastIo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forecast.io"));
+                            startActivity(intent);
+                        }
+                    });
 
                     ImageButton unPopup = (ImageButton)popupView.findViewById(R.id.un_popup);
                     unPopup.setOnClickListener(new Button.OnClickListener(){

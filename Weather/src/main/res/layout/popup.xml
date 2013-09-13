@@ -117,6 +117,15 @@
                 android:text="000"/>
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/forecast_io"
+            android:id="@+id/forecast_io"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/un_popup" />
     </RelativeLayout>
 
 </LinearLayout>
