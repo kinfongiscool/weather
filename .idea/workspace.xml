@@ -17,52 +17,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\java\com\kinfong\weather\MyLocation.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\anim\logo_spin.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\clear_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\clear_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\cloudy.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\fog.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\partly_cloudy_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\partly_cloudy_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\rain.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\sleet.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\snow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\weather_default.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-hdpi\wind.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\clear_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\clear_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\cloudy.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\fog.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\partly_cloudy_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\partly_cloudy_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\rain.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\sleet.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\snow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\test.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\weather_default.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-mdpi\wind.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\clear_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\clear_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\cloudy.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\fog.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\partly_cloudy_day.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\partly_cloudy_night.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\rain.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\sleet.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\snow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\weather_default.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\drawable-xhdpi\wind.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\res\menu\main.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/res/drawable-xxhdpi/logo_small.png" afterPath="$PROJECT_DIR$/Weather/src/main/res/drawable-xxhdpi/logo_small.png" />
+      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Forecast" afterPath="" />
+      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\java\com\kinfong\weather\MyScheduleReceiver.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\java\com\kinfong\weather\MyStartServiceReceiver.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -119,23 +78,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" line="175" class="com.kinfong.weather.MainActivity.LoadingScreenFragment" package="com.kinfong.weather">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -148,7 +91,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="0" selection-start="5677" selection-end="5677" vertical-scroll-proportion="0.1734694" vertical-offset="2495" max-vertical-offset="6690">
+            <state line="465" column="5" selection-start="17531" selection-end="17531" vertical-scroll-proportion="0.75510204" vertical-offset="6185" max-vertical-offset="6675">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3463#3954#0" expanded="true" />
@@ -165,7 +108,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="33" selection-start="215" selection-end="215" vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="735">
+            <state line="4" column="33" selection-start="215" selection-end="215" vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -237,8 +180,8 @@
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml" />
-        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -365,7 +308,7 @@
     <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MyService" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.102:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="TA300043HZ" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Default" />
@@ -616,7 +559,11 @@
       <created>1379107474498</created>
       <updated>1379107474498</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="ready for first publish!">
+      <created>1379109354245</created>
+      <updated>1379109354245</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -717,9 +664,9 @@
     <MESSAGE value="location service works where it doesn't call retrievelocation over and over again. working on getting GPS on checker to work (have GPS dialog set up) TODO: store location at boot to speed up first run." />
     <MESSAGE value="changed to intent architecture for communication b/t mainactivity and locationservice. TODO: gpscheck, persistent location" />
     <MESSAGE value="fixed first run speed, added GPS checker. ready for first deploy. TODO: get a less ugly gps dialog window" />
-    <MESSAGE value="ready for first publish!" />
     <MESSAGE value="preparing for first publish&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="preparing for first publish&#10;" />
+    <MESSAGE value="ready for first publish!" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready for first publish!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -762,20 +709,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyScheduleReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="797" selection-end="922" vertical-scroll-proportion="0.42857143" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MyStartServiceReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="210" selection-end="210" vertical-scroll-proportion="0.12244898" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java">
@@ -834,7 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="5677" selection-end="5677" vertical-scroll-proportion="0.1734694" vertical-offset="2495" max-vertical-offset="6690">
+        <state line="465" column="5" selection-start="17531" selection-end="17531" vertical-scroll-proportion="0.75510204" vertical-offset="6185" max-vertical-offset="6675">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3463#3954#0" expanded="true" />
