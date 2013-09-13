@@ -16,6 +16,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,8 +109,8 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      * Show alert dialog to allow user to enable GPS
      */
     protected void showGPSAlert(final Context context) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                context);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AppBaseTheme));
+//                context);
         alertDialogBuilder
                 .setMessage(
                         "GPS is disabled on your device. Would you like to enable it?")
