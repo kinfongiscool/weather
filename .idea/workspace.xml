@@ -18,7 +18,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/Weather/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -119,7 +118,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="224" column="105" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.8" vertical-offset="2683" max-vertical-offset="6690">
+            <state line="214" column="17" selection-start="7217" selection-end="7217" vertical-scroll-proportion="0.67755103" vertical-offset="2668" max-vertical-offset="6645">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3551#4042#0" expanded="true" />
@@ -675,7 +674,11 @@
       <created>1379103325259</created>
       <updated>1379103325259</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="ready for first publish!">
+      <created>1379104065885</created>
+      <updated>1379104065885</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -776,7 +779,8 @@
     <MESSAGE value="location service works where it doesn't call retrievelocation over and over again. working on getting GPS on checker to work (have GPS dialog set up) TODO: store location at boot to speed up first run." />
     <MESSAGE value="changed to intent architecture for communication b/t mainactivity and locationservice. TODO: gpscheck, persistent location" />
     <MESSAGE value="fixed first run speed, added GPS checker. ready for first deploy. TODO: get a less ugly gps dialog window" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed first run speed, added GPS checker. ready for first deploy. TODO: get a less ugly gps dialog window" />
+    <MESSAGE value="ready for first publish!" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready for first publish!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -897,7 +901,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="105" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.8" vertical-offset="2683" max-vertical-offset="6690">
+        <state line="214" column="17" selection-start="7217" selection-end="7217" vertical-scroll-proportion="0.67755103" vertical-offset="2668" max-vertical-offset="6645">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3551#4042#0" expanded="true" />

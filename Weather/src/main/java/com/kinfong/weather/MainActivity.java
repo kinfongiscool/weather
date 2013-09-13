@@ -206,19 +206,13 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                 public void run() {
                     loadingScreenText.setText("");
                 }
-            }, 15000);
+            }, 20000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     loadingScreenText.setText("Still looking for location...");
                 }
-            }, 20000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("");
-                }
-            }, 26000);
+            }, 30000);
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
