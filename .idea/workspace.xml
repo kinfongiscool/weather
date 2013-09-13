@@ -17,11 +17,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Forecast" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\java\com\kinfong\weather\MyScheduleReceiver.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Development\Repositories\NewWeatherProject\weather\Weather\src\main\java\com\kinfong\weather\MyStartServiceReceiver.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -563,7 +558,11 @@
       <created>1379109354245</created>
       <updated>1379109354245</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ready for first publish!">
+      <created>1379110550174</created>
+      <updated>1379110550174</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -588,7 +587,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5808147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
