@@ -17,7 +17,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,7 +106,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      */
     protected void showGPSAlert(final Context context) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-//                new ContextThemeWrapper(context, R.style.AppTheme));
                 context, 4);
         alertDialogBuilder
                 .setMessage(
@@ -177,21 +175,18 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.loading_screen, container, false);
-            // build UI
             ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
 
-            // RotateAnimation
             final float ROTATE_FROM = 0.0f;
             final float ROTATE_TO = -1.0f * 360.0f;
 
-            RotateAnimation r; // = new RotateAnimation(ROTATE_FROM, ROTATE_TO);
+            RotateAnimation r;
             r = new RotateAnimation(ROTATE_FROM, ROTATE_TO, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             r.setStartOffset(1000);
             r.setDuration((long) 2500);
             r.setRepeatCount(-1);
             logo.startAnimation(r);
 
-            // start handler operation
             checkIfReadyToFlip();
 
             final TextView loadingScreenText = (TextView) rootView.findViewById(R.id.loading_screen_text);

@@ -19,7 +19,6 @@ public class FetchForecastData {
     private String API_KEY;
 
     protected int status;
-    private HttpResponse response;
     protected JSONObject data;
 
 
@@ -71,8 +70,6 @@ public class FetchForecastData {
 
         protected void onPostExecute(HttpResponse res){
             status = res.getStatusLine().getStatusCode();
-            response = res;
-
             MainActivity.retrieveForecastData(data);
         }
     }

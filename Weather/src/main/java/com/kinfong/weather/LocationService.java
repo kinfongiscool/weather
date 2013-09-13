@@ -1,9 +1,7 @@
 package com.kinfong.weather;
 
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
@@ -14,7 +12,6 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class LocationService extends Service {
-    private static final String TAG = "BOOMBOOMTESTGPS";
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 10f;
@@ -23,31 +20,21 @@ public class LocationService extends Service {
 
     private class LocationListener implements android.location.LocationListener{
 
-        public LocationListener(String provider)
-        {
-            Log.e(TAG, "LocationListener " + provider);
+        public LocationListener(String provider) {
             mLocation = new Location(provider);
         }
         @Override
-        public void onLocationChanged(Location location)
-        {
-            Log.e(TAG, "onLocationChanged: " + location);
+        public void onLocationChanged(Location location) {
             mLocation.set(location);
         }
         @Override
-        public void onProviderDisabled(String provider)
-        {
-            Log.e(TAG, "onProviderDisabled: " + provider);
+        public void onProviderDisabled(String provider) {
         }
         @Override
-        public void onProviderEnabled(String provider)
-        {
-            Log.e(TAG, "onProviderEnabled: " + provider);
+        public void onProviderEnabled(String provider) {
         }
         @Override
-        public void onStatusChanged(String provider, int status, Bundle extras)
-        {
-            Log.e(TAG, "onStatusChanged: " + provider);
+        public void onStatusChanged(String provider, int status, Bundle extras) {
         }
     }
 
@@ -57,8 +44,7 @@ public class LocationService extends Service {
     };
 
     @Override
-    public IBinder onBind(Intent arg0)
-    {
+    public IBinder onBind(Intent arg0) {
         return mBinder;
     }
 
@@ -76,18 +62,13 @@ public class LocationService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
-
-        Log.e(TAG, "onStartCommand");
+    public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         return Service.START_STICKY;
     }
 
     @Override
-    public void onCreate()
-    {
-        Log.e(TAG, "onCreate");
+    public void onCreate() {
         initializeLocationManager();
         if(checkGPSEnabled()) {
             try {
@@ -95,46 +76,36 @@ public class LocationService extends Service {
                         LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
                         mLocationListeners[1]);
             } catch (java.lang.SecurityException ex) {
-                Log.i(TAG, "fail to request location update, ignore", ex);
             } catch (IllegalArgumentException ex) {
-                Log.d(TAG, "network provider does not exist, " + ex.getMessage());
             }
             try {
                 mLocationManager.requestLocationUpdates(
                         LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
                         mLocationListeners[0]);
             } catch (java.lang.SecurityException ex) {
-                Log.i(TAG, "fail to request location update, ignore", ex);
             } catch (IllegalArgumentException ex) {
-
-                Log.d(TAG, "gps provider does not exist " + ex.getMessage());
             }
 
         } else {
-            Log.e(TAG, "GPS not enabled");
             Intent intent = new Intent("showGpsDialog");
             sendBroadcast(intent);
         }
     }
 
     @Override
-    public void onDestroy()
-    {
-        Log.e(TAG, "onDestroy");
+    public void onDestroy() {
         super.onDestroy();
         if (mLocationManager != null) {
             for (int i = 0; i < mLocationListeners.length; i++) {
                 try {
                     mLocationManager.removeUpdates(mLocationListeners[i]);
                 } catch (Exception ex) {
-                    Log.i(TAG, "fail to remove location listners, ignore", ex);
                 }
             }
         }
     }
 
     private void initializeLocationManager() {
-        Log.e(TAG, "initializeLocationManager");
         if (mLocationManager == null) {
             mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         }
@@ -143,36 +114,6 @@ public class LocationService extends Service {
     private boolean checkGPSEnabled() {
         return mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
-
-//    /**
-//     * Show alert dialog to allow user to enable GPS
-//     */
-//    protected void showGPSAlert(final Context context) {
-//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-//                context);
-//        alertDialogBuilder
-//                .setMessage(
-//                        "GPS is disabled on your device. Would you like to enable it?")
-//                .setCancelable(false)
-//                .setPositiveButton("Open Settings",
-//                        new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int id) {
-//                                // set intent to open settings
-//                                Intent callGPSSettingIntent = new Intent(
-//                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//                                context.startActivity(callGPSSettingIntent);
-//                            }
-//                        })
-//                .setNegativeButton("Cancel",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
-//        AlertDialog alert = alertDialogBuilder.create();
-//        //TODO: fix this copypasted junk.
-//        alert.show();
-//    }
 
     /**
      * Handler to check for a good location before retrieving location.
@@ -183,11 +124,9 @@ public class LocationService extends Service {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                if (mLocationM != null && mLocation.getLatitude() != 0 && mLocation.getLongitude() != 0) {
                 if(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER) != null
                         && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude() != 0
                         && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude() != 0) {
-                    Log.e(TAG, "Retrieving Location");
                     Intent intent = new Intent("retrieveLocation");
                     intent.putExtra("location", mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
                     sendBroadcast(intent);

@@ -25,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<service android:name=".LocationService" android:process=":my_service" />-->
         <service
                 android:name=".LocationService"
                 android:icon="@drawable/logo"
