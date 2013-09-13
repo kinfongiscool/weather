@@ -59,16 +59,12 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     private BroadcastReceiver mRetrieveLocationReceiver;
     private BroadcastReceiver mGpsDialogReceiver;
 
-    private Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_screen);
 
         doBindService();
-
-        context = this;
 
         mGpsDialogReceiver = new GpsDialogReceiver();
 
@@ -109,8 +105,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
      * Show alert dialog to allow user to enable GPS
      */
     protected void showGPSAlert(final Context context) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AppBaseTheme));
-//                context);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+//                new ContextThemeWrapper(context, R.style.AppTheme));
+                context, 4);
         alertDialogBuilder
                 .setMessage(
                         "GPS is disabled on your device. Would you like to enable it?")
@@ -225,51 +222,9 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             loadingScreenText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadingScreenText.setText("Having trouble finding your location.");
+                    loadingScreenText.setText("There was most likely a problem. You should reset the app.");
                 }
-            }, 30000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("We might have a problem.\nIs your GPS on?");
-                }
-            }, 35000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Try walking closer to a window.");
-                }
-            }, 38000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Sorry, this is embarrassing.");
-                }
-            }, 43000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Make sure your GPS is on!");
-                }
-            }, 47000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Trying one last time.");
-                }
-            }, 53000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Well, something bad must have happened.\nYou should reset the app.");
-                }
-            }, 60000);
-            loadingScreenText.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    loadingScreenText.setText("Still here? You should reset the app.");
-                }
-            }, 70000);
+            }, 100000);
 
             return rootView;
         }
