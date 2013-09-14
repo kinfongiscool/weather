@@ -10,7 +10,7 @@
     <!--strings used in pop up-->
     <string name="hourly_header">Today:</string>
     <string name="daily_header">This week:</string>
-    <string name="forecast_io">Powered by Forecast.io</string>
+    <string name="forecast_io">Powered by forecast.io</string>
     <!--misc strings-->
     <string name="service_name">EasyWeather Service</string>
     <string name="loading_screen_text"></string>
