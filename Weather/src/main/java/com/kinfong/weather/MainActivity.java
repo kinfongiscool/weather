@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.net.Uri;
@@ -44,15 +45,10 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     boolean mIsBound;
 
-    /**
-     * A handler object, used for deferring UI operations.
-     */
+
     private Handler mHandler = new Handler();
 
-    /**
-     * Whether or not we're showing the back of the card (otherwise showing the front).
-     */
-    private static boolean mShowingBack = false;
+    private static boolean mShowingMain = false;
 
     private static boolean readyToFlip = false;
 
@@ -77,7 +73,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                     .add(R.id.container, new LoadingScreenFragment())
                     .commit();
         } else {
-            mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
+            mShowingMain = (getFragmentManager().getBackStackEntryCount() > 0);
         }
 
         getFragmentManager().addOnBackStackChangedListener(this);
@@ -131,12 +127,12 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
 
     private void flipCard() {
-        if (mShowingBack) {
+        if (mShowingMain) {
             getFragmentManager().popBackStack();
             return;
         }
 
-        mShowingBack = true;
+        mShowingMain = true;
 
         getFragmentManager()
                 .beginTransaction()
@@ -158,7 +154,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     @Override
     public void onBackStackChanged() {
-        mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
+        mShowingMain = (getFragmentManager().getBackStackEntryCount() > 0);
 
         invalidateOptionsMenu();
     }
@@ -220,8 +216,18 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if(popupUp) {
+            popupWindow.dismiss();
+            popupUp = false;
+        } else {
+            super.onBackPressed();
+        }
+    }
 
-
+    static PopupWindow popupWindow;
+    static boolean popupUp;
     /**
      * A fragment representing the back of the card (MainActivity).
      */
@@ -266,10 +272,16 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                             = (LayoutInflater) rootView.getContext()
                             .getSystemService(LAYOUT_INFLATER_SERVICE);
                     final View popupView = layoutInflater.inflate(R.layout.popup, null);
-                    final PopupWindow popupWindow = new PopupWindow(
+
+                    popupWindow = new PopupWindow(
                             popupView,
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable();
+                    bitmapDrawable.setAlpha(100);
+                    popupWindow.setBackgroundDrawable(bitmapDrawable);
+
+                    popupUp = true;
 
                     hourlyIcon = (ImageView) popupView.findViewById(R.id.hourly_icon);
                     hourlySummary = (TextView) popupView.findViewById(R.id.hourly_summary);
@@ -299,6 +311,7 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                         @Override
                         public void onClick(View v) {
                             popupWindow.dismiss();
+                            popupUp = false;
                         }});
 
                     popupWindow.showAtLocation(popupButton, 119, 0, 0);
@@ -395,6 +408,28 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             mIsBound = false;
         }
     }
+
+
+
+
+
+
+
+
+    // TODO: FIX POP UP YAY
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     protected void onDestroy() {
