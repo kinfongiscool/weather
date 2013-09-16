@@ -17,8 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -94,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationService.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LocationService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.13111888" vertical-offset="0" max-vertical-offset="2100">
+            <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2100">
               <folding />
             </state>
           </provider>
@@ -124,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="33" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="630">
+            <state line="4" column="37" selection-start="219" selection-end="219" vertical-scroll-proportion="0.10489511" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -202,10 +201,10 @@
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/FetchForecastData.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml" />
-        <option value="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
+        <option value="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -621,7 +620,11 @@
       <created>1379363061819</created>
       <updated>1379363061819</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ready for publish">
+      <created>1379363165728</created>
+      <updated>1379363165728</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -726,7 +729,8 @@
     <MESSAGE value="ready for first publish!" />
     <MESSAGE value="fixed popup window" />
     <MESSAGE value="LOG STATEMENTS bug fixing: fixed back bug! fixed popup bug!" />
-    <option name="LAST_COMMIT_MESSAGE" value="LOG STATEMENTS bug fixing: fixed back bug! fixed popup bug!" />
+    <MESSAGE value="ready for publish" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready for publish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -804,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="33" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/res/layout/popup.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -844,7 +841,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.13111888" vertical-offset="0" max-vertical-offset="2100">
+        <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="37" selection-start="219" selection-end="219" vertical-scroll-proportion="0.10489511" vertical-offset="0" max-vertical-offset="630">
           <folding />
         </state>
       </provider>
