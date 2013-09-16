@@ -19,7 +19,6 @@
     <list default="true" id="1ad51f70-695e-4cf8-a9fe-f740ca602cec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" afterPath="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather.iws" />
@@ -86,19 +85,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="398" column="33" selection-start="14965" selection-end="14965" vertical-scroll-proportion="0.30944055" vertical-offset="4818" max-vertical-offset="6675">
+            <state line="41" column="0" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="6360">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationService.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LocationService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="60" selection-start="4620" selection-end="4620" vertical-scroll-proportion="0.0" vertical-offset="1273" max-vertical-offset="2220">
+            <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.13111888" vertical-offset="0" max-vertical-offset="2100">
               <folding />
             </state>
           </provider>
@@ -205,8 +204,8 @@
         <option value="$PROJECT_DIR$/Weather/src/main/res/anim/logo_spin.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/WeatherData.java" />
-        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
         <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java" />
       </list>
     </option>
   </component>
@@ -618,7 +617,11 @@
       <created>1379212055883</created>
       <updated>1379212055883</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="LOG STATEMENTS bug fixing: fixed back bug! fixed popup bug!">
+      <created>1379363061819</created>
+      <updated>1379363061819</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -643,7 +646,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-146" y="-1088" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2630458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -656,7 +659,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24096386" sideWeight="0.42555994" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26992562" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36450586" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36450586" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298292" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -722,7 +725,8 @@
     <MESSAGE value="preparing for first publish&#10;" />
     <MESSAGE value="ready for first publish!" />
     <MESSAGE value="fixed popup window" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed popup window" />
+    <MESSAGE value="LOG STATEMENTS bug fixing: fixed back bug! fixed popup bug!" />
+    <option name="LAST_COMMIT_MESSAGE" value="LOG STATEMENTS bug fixing: fixed back bug! fixed popup bug!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -831,16 +835,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="60" selection-start="4620" selection-end="4620" vertical-scroll-proportion="0.0" vertical-offset="1273" max-vertical-offset="2220">
+        <state line="41" column="0" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="6360">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/Weather/src/main/java/com/kinfong/weather/LocationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="398" column="33" selection-start="14965" selection-end="14965" vertical-scroll-proportion="0.30944055" vertical-offset="4818" max-vertical-offset="6675">
+        <state line="14" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.13111888" vertical-offset="0" max-vertical-offset="2100">
           <folding />
         </state>
       </provider>

@@ -40,8 +40,6 @@ import org.json.JSONObject;
  */
 public class MainActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
 
-    public static final String TAG = "MainActivity";
-
     public static final String API_KEY = "0692d0f09a1e18c05539495deed088d6";
 
     private static WeatherData mData;
@@ -85,7 +83,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.e(TAG, "onReceive RetrieveLOcationReceiver");
             Bundle b = intent.getExtras();
             Location location = (Location) b.get("location");
             retrieveLocation(location);
@@ -130,8 +127,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
 
     private void flipCard() {
-        Log.e(TAG, "flipCard");
-
         if (mShowingMain) {
             getFragmentManager().popBackStack();
             return;
@@ -159,7 +154,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     @Override
     public void onBackStackChanged() {
-        Log.e(TAG, "onBackStackChanged");
         mShowingMain = (getFragmentManager().getBackStackEntryCount() > 0);
 
         invalidateOptionsMenu();
@@ -176,7 +170,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            Log.e(TAG, "onCreateView LoadingScreenFragment");
             View rootView = inflater.inflate(R.layout.loading_screen, container, false);
             ImageView logo = (ImageView) rootView.findViewById(R.id.logo);
 
@@ -190,7 +183,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             r.setRepeatCount(-1);
             logo.startAnimation(r);
 
-            Log.e(TAG, "LoadingScreenFragment calling checkReadyToFlip");
             checkIfReadyToFlip();
 
             final TextView loadingScreenText = (TextView) rootView.findViewById(R.id.loading_screen_text);
@@ -380,27 +372,21 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder binder) {
-            Log.e(TAG, "onServiceConnected");
             mBoundService = ( (LocationService.LocationBinder) binder).getService();
 
             mBoundService.doRetrieveLocation();
         }
         public void onServiceDisconnected(ComponentName className) {
-            Log.e(TAG, "onServiceDisconnected");
             mBoundService = null;
         }
     };
 
     @Override
     protected void onResume() {
-        Log.e(TAG, "onResume");
         super.onResume();
-//        if(!mShowingMain) {
-            mShowingMain = false;
-            readyToFlip = false;
-            checkIfReadyToFlip();
-            //TODO quitting the app and returning gets stuck on loading screen.
-//        }
+        mShowingMain = false;
+        readyToFlip = false;
+        checkIfReadyToFlip();
         doBindService();
         registerReceiver(mRetrieveLocationReceiver, new IntentFilter("retrieveLocation"));
         registerReceiver(mGpsDialogReceiver, new IntentFilter("showGpsDialog"));
@@ -408,7 +394,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     @Override
     protected void onPause() {
-        Log.e(TAG, "onPause");
         super.onPause();
         doUnbindService();
         unregisterReceiver(mRetrieveLocationReceiver);
@@ -416,13 +401,11 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
     }
 
     void doBindService() {
-        Log.e(TAG, "doBindService");
         bindService(new Intent(this, LocationService.class), mConnection, Context.BIND_AUTO_CREATE);
         mIsBound = true;
     }
 
     void doUnbindService() {
-        Log.e(TAG, "doUnbindService");
         if (mIsBound) {
             unbindService(mConnection);
             mIsBound = false;
@@ -431,7 +414,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
     @Override
     protected void onDestroy() {
-        Log.e(TAG, "onDestroy");
         super.onDestroy();
         doUnbindService();
         readyToFlip = false;
@@ -440,12 +422,10 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
 
 
     public static void retrieveLocation(Location location) {
-        Log.e(TAG, "retrieveLocation");
         new FetchForecastData(location.getLatitude(), location.getLongitude(), API_KEY);
     }
 
     public static void retrieveForecastData(JSONObject data) {
-        Log.e(TAG, "retrieveForecastData");
         extractData(data);
         readyToFlip = true;
     }
@@ -460,7 +440,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
             @Override
             public void run() {
                 if (readyToFlip) {
-                    Log.e(TAG, "checkIfReadyToFlip completed");
                     flipCard();
                     h.removeCallbacks(this);
                 } else {
