@@ -136,6 +136,6 @@ public class WeatherData {
     }
 
     private String formatTemp(String input) {
-        return input.substring(0, input.indexOf('.')) + "\u00B0";
+        return String.valueOf(Math.round(Double.valueOf(input))) + "\u00b0";
     }
 }

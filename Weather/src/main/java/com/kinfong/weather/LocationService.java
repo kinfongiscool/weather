@@ -12,6 +12,9 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class LocationService extends Service {
+
+    private static final String TAG = "LocationService";
+
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 10f;
@@ -25,6 +28,7 @@ public class LocationService extends Service {
         }
         @Override
         public void onLocationChanged(Location location) {
+            Log.e(TAG, "onLocationChanged");
             mLocation.set(location);
         }
         @Override
@@ -45,6 +49,7 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent arg0) {
+        Log.e(TAG, "onBind");
         return mBinder;
     }
 
@@ -63,12 +68,14 @@ public class LocationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e(TAG, "onStartCommand");
         super.onStartCommand(intent, flags, startId);
         return Service.START_STICKY;
     }
 
     @Override
     public void onCreate() {
+        Log.e(TAG, "onCreate");
         initializeLocationManager();
         if(checkGPSEnabled()) {
             try {
@@ -94,6 +101,7 @@ public class LocationService extends Service {
 
     @Override
     public void onDestroy() {
+        Log.e(TAG, "onDestroy");
         super.onDestroy();
         if (mLocationManager != null) {
             for (int i = 0; i < mLocationListeners.length; i++) {
@@ -127,6 +135,7 @@ public class LocationService extends Service {
                 if(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER) != null
                         && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude() != 0
                         && mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude() != 0) {
+                    Log.e(TAG, "doRetrieveLocation completed");
                     Intent intent = new Intent("retrieveLocation");
                     intent.putExtra("location", mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
                     sendBroadcast(intent);
