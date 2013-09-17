@@ -278,9 +278,6 @@ public class MainActivity extends Activity implements FragmentManager.OnBackStac
                             popupView,
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable();
-                    bitmapDrawable.setAlpha(100);
-                    popupWindow.setBackgroundDrawable(bitmapDrawable);
 
                     popupUp = true;
 
